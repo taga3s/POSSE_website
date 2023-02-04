@@ -1,0 +1,104 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
+
+.p-tophero {
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include mobile {
+      flex-direction: column-reverse;
+      
+    }
+  }
+
+  &__title {
+    width: 500px;
+    margin-right: -110px;
+    padding: 40px 62px;
+    background-color: #eff2f5;
+    border-radius: 24px;
+    z-index: 2;
+
+    @include mobile {
+      width: 95%;
+      margin: -24px auto 0;
+      padding: 20px 15px;
+      border-radius: 24px;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-weight: bold;
+
+      @include mobile {
+        align-items: center;
+      }
+
+      & h1 {
+        color: $color-blue;
+        font-size: 16px;
+        line-height: 1.8;
+
+        @include mobile {
+          font-size: 12px;
+        }
+      }
+
+      & span {
+        color: $color-blue;
+        font-size: 60px;
+        line-height: 133%;
+        color: $color-black;
+
+        @include mobile {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+
+  & img {
+    width: 67%;
+    // min-height: 390px;
+    height: auto;
+    border-radius: 80px 0 0 80px;
+
+    @include mobile {
+      width: 100%;
+      min-height: 275px;
+      border-radius: 0;
+    }
+  }
+
+  &__sd {
+    position: absolute;
+    left: 126px;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    @include mobile {
+      display: none;
+    }
+
+    &__circle {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #adadad;
+    }
+
+    &__text {
+      color: $color-black;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}
