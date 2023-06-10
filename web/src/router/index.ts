@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from "../pages/HomeView.vue"
 import QuizView from "../pages/QuizView.vue"
+import NotFoundView from "../pages/NotFoundView.vue"
 
 const routes = [
   {
@@ -14,6 +15,12 @@ const routes = [
     name: 'quiz',
     component: QuizView,
     meta: { title: "POSSE | クイズ" }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFoundView,
+    meta: { title: "POSSE | お探しのページが見つかりません" }
   }
 ]
 
