@@ -1,9 +1,9 @@
 @use "../../foundation/variables" as *;
 @use "../../foundation/mixin" as *;
 
-.p-quizhero {
+.p-quiz-hero {
   height: 320px;
-  background-image: url(../img/quiz/bg-hero.jpg);
+  background-image: url(img/quiz/bg-hero.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -30,7 +30,7 @@
         font-size: 14px;
       }
     }
-  
+
     & span {
       font-size: 60px;
 

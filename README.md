@@ -1,9 +1,15 @@
 # POSSE_website
 
-## 言語・環境（予定）
+## 言語・環境
+
+### フロントエンド
 
 - Vue3 (Composition API)
+- sass
 - TypeScript
+
+### バックエンド（予定）
+
 - Laravel
 - mysql
 - docker
