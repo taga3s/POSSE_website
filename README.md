@@ -10,7 +10,8 @@
 
 ### バックエンド（予定）
 
-- Laravel
+- Express
+- JWT（?）
 - mysql
 - docker
 
