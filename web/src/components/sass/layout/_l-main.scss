@@ -1,0 +1,9 @@
+@use "../foundation/mixin" as *;
+
+.l-main {
+  margin-top: 80px;
+
+  @include mobile {
+    margin-top: 56px;
+  }
+}

@@ -1,0 +1,42 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
+
+.p-quizhero {
+  height: 320px;
+  background-image: url(../img/quiz/bg-hero.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: $color-white;
+  font-weight: 700;
+
+  @include mobile {
+    height: 160px;
+  }
+
+  &__title {
+    margin-left: 204px;
+    padding-top: 154px;
+
+    @include mobile {
+      margin-left: 32px;
+      padding-top: 60px;
+    }
+
+    & h1 {
+      font-size: 18px;
+
+      @include mobile {
+        font-size: 14px;
+      }
+    }
+  
+    & span {
+      font-size: 60px;
+
+      @include mobile {
+        font-size: 28px;
+      }
+    }
+  }
+}

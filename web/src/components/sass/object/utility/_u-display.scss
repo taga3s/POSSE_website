@@ -1,0 +1,34 @@
+@use "../../foundation/variables" as *;
+
+.u-display {
+
+  &-block {
+    display: block;
+  }
+  
+  &-flex {
+    display: flex;
+  }
+}
+
+.u-color {
+
+  &-red {
+    color: $color-red;
+  }
+  
+  &-blue {
+    color: $color-blue;
+  }
+}
+
+.u-bg-color {
+
+  &-pink {
+    background-color: #fff2f5;
+  }
+
+  &-lightblue {
+    background-color: #eff2f5;
+  }
+}
