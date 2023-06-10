@@ -22,6 +22,11 @@
 
 ### フロントエンド
 
-- Repository Factory Pattern を採用してみる
+- SPA で構築する
+- Repository Factory Pattern を採用してみる  
+  @see https://qiita.com/07JP27/items/0923cbe3b6435c19d761  
+  @see https://tech.forstartups.com/entry/2021/07/27/194946
 
 ### バックエンド
+
+- Rest での API 開発
