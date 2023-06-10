@@ -1,0 +1,185 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
+
+.p-quiz-container {
+  max-width: 1016px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  z-index: 1;
+}
+
+.p-quiz {
+  margin-top: 120px;
+
+  @include mobile {
+    margin-top: 48px;
+  }
+
+  &__header {
+    font-size: 36px;
+
+    &__quiz-label {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background-color: $color-blue;
+      color: $color-white;
+      line-height: 1.5;
+
+      @include mobile {
+        font-size: 24px;
+      }
+    }
+
+    &__question {
+      display: block;
+      margin-top: 24px;
+      font-weight: 700;
+
+      @include mobile {
+        margin-top: 16px;
+        font-size: 18px;
+      }
+    }
+
+    &__image img {
+      display: block;
+      width: 718px;
+      height: 357px;
+      margin: 64px auto 0;
+
+      @include mobile {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &__answer-label {
+    display: inline-block;
+    margin-top: 64px;
+    padding: 8px 16px;
+    background-color: $color-red;
+    color: $color-white;
+    border-radius: 8px;
+    font-size: 36px;
+    line-height: 1.5;
+
+    @include mobile {
+      font-size: 24px;
+    }
+  }
+
+  &__answer-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__choices {
+      display: flex;
+      justify-content: space-between;
+
+      @include mobile {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      & li {
+        max-width: 312px;
+        width: 100%;
+
+        @include mobile {
+          max-width: 100%;
+        }
+      }
+
+      &__button {
+        width: 100%;
+        height: 80px;
+        margin-top: 16px;
+        padding-left: 24px;
+        border: 5px solid $color-gray-light;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 700;
+
+        @include mobile {
+          height: 54px;
+          margin-top: 0;
+          border: 4px solid $color-gray-light;
+          font-size: 14px;
+        }
+
+        &:disabled {
+          color: $color-black;
+        }
+      }
+    }
+
+    &__answer {
+      display: none;
+      height: 143px;
+      background-color: #fff2f5;
+      border-radius: 8px;
+      font-weight: 700;
+
+      &__textbox {
+        margin-left: 40px;
+        padding-top: 24px;
+
+        & span:first-child {
+          font-size: 24px;
+          line-height: 1.5;
+        }
+
+        & div {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-top: 16px;
+
+          & span:first-child {
+            color: $color-black;
+            line-height: 1.8;
+          }
+
+          & span:last-child {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  & cite a {
+    display: block;
+    height: 80px;
+    padding-left: 64px;
+    background-color: #f6f6f6;
+    background-image: url(../img/icon/icon-note.svg);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    border-radius: 8px;
+    line-height: 80px;
+    font-weight: 700;
+
+    @include mobile {
+      height: 92px;
+      line-height: 92px;
+    }
+  }
+}
+
+//state
+.is-selected {
+  border: 5px solid $color-blue;
+  color: $color-blue !important;
+}
+
+.is-attached-arrow {
+  background-image: url(../img/icon/icon-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: 90% center;
+}
