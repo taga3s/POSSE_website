@@ -6,7 +6,7 @@ import LineAdd from "../components/features/common/LineAdd.vue";
 </script>
 
 <template>
-  <article>
+  <article class="l-main">
     <Hero />
     <About />
     <Line />

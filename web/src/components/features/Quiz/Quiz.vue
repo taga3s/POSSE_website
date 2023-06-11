@@ -12,7 +12,7 @@ type TQuiz = {
 
 type TChoice = {
   label: string;
-  isCorrect: 0 | 1;
+  isCorrect: number;
 };
 
 /**

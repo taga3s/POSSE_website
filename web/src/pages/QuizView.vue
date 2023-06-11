@@ -8,7 +8,7 @@ import { quizSet } from "../constants";
 </script>
 
 <template>
-  <article>
+  <article class="l-main">
     <Hero />
     <section class="p-quiz-container" id="js-quiz-area">
       <Quiz v-for="q in quizSet" :quiz="q" :key="q.num" />
