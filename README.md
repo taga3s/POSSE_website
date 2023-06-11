@@ -11,7 +11,7 @@
 - TypeScript
 - vite
 
-### バックエンド（予定）
+### バックエンド
 
 - Express
 - TypeScript
@@ -30,3 +30,53 @@
 ### バックエンド
 
 - Rest での API 開発
+
+### プロジェクトの始め方
+
+### web
+
+```sh
+$ cd web
+```
+
+パッケージのインストール
+
+```sh
+$ npm i
+```
+
+フロントエンドサーバーの起動
+
+```sh
+$ npm run dev
+```
+
+### service
+
+```sh
+$ cd service
+```
+
+パッケージのインストール
+
+```sh
+$ npm i
+```
+
+バックエンドサーバーの起動
+
+- ターミナルを２つ開いて、それぞれコマンドを実行する
+
+```sh
+$ npm run watch
+```
+
+```sh
+$ npm run dev
+```
+
+mysql の起動
+
+```sh
+$ docker compose up -d
+```
