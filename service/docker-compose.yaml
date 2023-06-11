@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   mysql:
-    image: mysql:8.0.29
+    image: mysql:latest
     platform: linux/amd64
     ports:
       - "3306:3306"
@@ -10,7 +10,4 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - TZ=Asia/Tokyo
     volumes:
-      - data-volumes:/var/lib/mysql
-
-volumes: 
-  data-volumes:
+      - ./docker/mysql:/docker-entrypoint-initdb.d
