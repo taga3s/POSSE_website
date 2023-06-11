@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { logger } from "../middleware/logger.js";
-import { auth } from "../middleware/auth.js";
+import { pool } from "../db/dbconnect.js";
 
 const quizzesRouter = express.Router();
 quizzesRouter.use(logger)
@@ -25,8 +25,10 @@ let quizzes: Quiz[] = [
   }
 ]
 
-quizzesRouter.get("/", (req: Request, res: Response) => {
-  res.status(200).json(quizzes)
+// sample
+quizzesRouter.get("/", async (req: Request, res: Response) => {
+  const [rows] = await pool.query("SELECT * FROM quizzes");
+  res.status(200).json(rows)
 })
 
 quizzesRouter.get("/:id", (req: Request, res: Response) => {

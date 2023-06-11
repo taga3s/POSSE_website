@@ -1,5 +1,6 @@
 import express from "express";
 import { logger } from "../middleware/logger.js";
+import { pool } from "../db/dbconnect.js";
 const quizzesRouter = express.Router();
 quizzesRouter.use(logger);
 let quizzes = [
@@ -16,8 +17,10 @@ let quizzes = [
         text: "クイズ3"
     }
 ];
-quizzesRouter.get("/", (req, res) => {
-    res.status(200).json(quizzes);
+// sample
+quizzesRouter.get("/", async (req, res) => {
+    const [rows] = await pool.query("SELECT * FROM quizzes");
+    res.status(200).json(rows);
 });
 quizzesRouter.get("/:id", (req, res) => {
     const id = req.params.id;

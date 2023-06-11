@@ -1,13 +1,19 @@
 version: "3.8"
 
 services:
-  mysql:
-    image: mysql:latest
-    platform: linux/amd64
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    command: --default-authentication-plugin=mysql_native_password
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=posse
       - TZ=Asia/Tokyo
     volumes:
+      - mysql-data:/var/lib/mysql
       - ./docker/mysql:/docker-entrypoint-initdb.d
+volumes:
+  mysql-data:
