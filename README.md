@@ -29,6 +29,9 @@
 
 ### バックエンド
 
+- 三層アーキテクチャ（MVC モデル）を選定  
+  @see https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
+  @see https://github.com/santiq/bulletproof-nodejs/tree/master
 - Rest での API 開発
 
 ### プロジェクトの始め方
