@@ -22,17 +22,17 @@
 
 ### フロントエンド
 
-- SPA で構築する
-- Repository Factory Pattern を採用してみる  
+- SPA
+- Repository Factory Pattern を検討中  
   @see https://qiita.com/07JP27/items/0923cbe3b6435c19d761  
   @see https://tech.forstartups.com/entry/2021/07/27/194946
 
 ### バックエンド
 
-- 三層アーキテクチャ（MVC モデル）を選定  
+- 三層アーキテクチャ(model, routes, service)による構築
+- Rest での API 開発  
   @see https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
   @see https://github.com/santiq/bulletproof-nodejs/tree/master
-- Rest での API 開発
 
 ### プロジェクトの始め方
 
