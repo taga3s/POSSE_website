@@ -19,6 +19,7 @@
     "@types/mysql": "^2.15.21",
     "@types/node": "20.2.6",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard-with-typescript": "^35.0.0",
