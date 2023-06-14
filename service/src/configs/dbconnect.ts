@@ -1,10 +1,11 @@
-import mysql from 'mysql2'
+// Promise APIをインポートする
+import mysql from 'mysql2/promise'
 
-export const pool = mysql
-  .createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'posse',
-  })
-  .promise()
+const connectionOptions = {
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'posse',
+}
+
+export const connection = await mysql.createConnection(connectionOptions)
