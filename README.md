@@ -23,13 +23,14 @@
 - mysql
 - docker
 
-## 設計（予定）
+## 設計
 
 ### フロントエンド
 
 - SPA での構築
-- Repository Pattern を試してみる  
-  @ref https://zenn.dev/tokyofactory/articles/99e4f6b6042f1c
+- Repository Pattern を試してみた  
+  @ref https://zenn.dev/chida/articles/5756a54d94230a  
+  @ref https://qiita.com/07JP27/items/0923cbe3b6435c19d761
 
 ### バックエンド
 
