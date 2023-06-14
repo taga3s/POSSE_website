@@ -1,56 +1,56 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { TChoice, TQuiz } from "../../../pages/QuizView.vue";
+import { ref } from 'vue'
+import { TChoice, TQuiz } from '../../../pages/QuizView.vue'
 
 /**
  * functions
  */
 const shuffle = (arr: TChoice[]) => {
   for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[j], arr[i]] = [arr[i], arr[j]];
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[j], arr[i]] = [arr[i], arr[j]]
   }
-  return arr;
-};
+  return arr
+}
 
 const setDisabled = (choice_buttons: { disabled: boolean }[]) => {
   choice_buttons.forEach((c: { disabled: boolean }) => {
-    c.disabled = true;
-  });
-};
+    c.disabled = true
+  })
+}
 
 const removeArrows = (choice_buttons: { classList: { remove: (arg0: string) => void } }[]) => {
   choice_buttons.forEach((c: { classList: { remove: (arg0: string) => void } }) => {
-    c.classList.remove("is-attached-arrow");
-  });
-};
+    c.classList.remove('is-attached-arrow')
+  })
+}
 
 const checkAnswer = (isCorrect: number) => {
-  setDisabled(choice_buttons.value);
-  removeArrows(choice_buttons.value);
-  selectedChoice.value = isCorrect;
+  setDisabled(choice_buttons.value)
+  removeArrows(choice_buttons.value)
+  selectedChoice.value = isCorrect
 
   if (isCorrect && answer_title.value) {
-    answer.value.classList.add("u-display-block", "u-bg-color-pink");
-    answer_title.value.innerText = "正解";
-    answer_title.value.classList.add("u-color-red");
+    answer.value.classList.add('u-display-block', 'u-bg-color-pink')
+    answer_title.value.innerText = '正解'
+    answer_title.value.classList.add('u-color-red')
   } else {
-    answer.value.classList.add("u-display-block", "u-bg-color-lightblue");
-    answer_title.value.innerText = "不正解...";
-    answer_title.value.classList.add("u-color-blue");
+    answer.value.classList.add('u-display-block', 'u-bg-color-lightblue')
+    answer_title.value.innerText = '不正解...'
+    answer_title.value.classList.add('u-color-blue')
   }
-};
+}
 
 /**
  * state
  */
-const props = defineProps<{ quiz: TQuiz }>();
-const shuffledChoices = ref<TChoice[]>(shuffle(props.quiz.choices));
-const selectedChoice = ref<number | null>(null);
+const props = defineProps<{ quiz: TQuiz }>()
+const shuffledChoices = ref<TChoice[]>(shuffle(props.quiz.choices))
+const selectedChoice = ref<number | null>(null)
 // 苦渋のany
-const choice_buttons = ref<any>(null);
-const answer = ref<any>(null);
-const answer_title = ref<any>(null);
+const choice_buttons = ref<any>(null)
+const answer = ref<any>(null)
+const answer_title = ref<any>(null)
 </script>
 
 <template>
@@ -58,13 +58,21 @@ const answer_title = ref<any>(null);
     <div class="p-quiz__header">
       <div class="p-quiz__header__quiz-label">Q{{ props.quiz.id }}</div>
       <span class="p-quiz__header__question">{{ props.quiz.quiz_text }}</span>
-      <figure class="p-quiz__header__image"><img :src="`/img/quiz/${props.quiz.img}`" alt="" /></figure>
+      <figure class="p-quiz__header__image">
+        <img :src="`/img/quiz/${props.quiz.img}`" alt="" />
+      </figure>
     </div>
     <div class="p-quiz__answer-label">A</div>
     <div class="p-quiz__answer-box">
       <ul class="p-quiz__answer-box__choices">
         <li v-for="(c, index) in shuffledChoices" :key="index">
-          <button class="p-quiz__answer-box__choices__button is-attached-arrow js-choice" @click="checkAnswer(c.isCorrect)" ref="choice_buttons">{{ c.name }}</button>
+          <button
+            class="p-quiz__answer-box__choices__button is-attached-arrow js-choice"
+            @click="checkAnswer(c.isCorrect)"
+            ref="choice_buttons"
+          >
+            {{ c.name }}
+          </button>
         </li>
       </ul>
       <div class="p-quiz__answer-box__answer js-answer" ref="answer">

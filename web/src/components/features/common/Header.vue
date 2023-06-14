@@ -15,9 +15,13 @@
           <ul class="p-header__items-list-mobile">
             <li class="p-header__items-list-mobile__line-add">
               <div class="p-header__items-list-mobile__line-add__container">
-                <div class="p-header__items-list-mobile__line-add__image01"><img src="img/icon/icon-line.svg" alt="" /></div>
+                <div class="p-header__items-list-mobile__line-add__image01">
+                  <img src="img/icon/icon-line.svg" alt="" />
+                </div>
                 <span>POSSE公式LINE追加</span>
-                <div class="p-header__items-list-mobile__line-add__image02"><img src="img/icon/icon-link-light.svg" alt="" /></div>
+                <div class="p-header__items-list-mobile__line-add__image02">
+                  <img src="img/icon/icon-link-light.svg" alt="" />
+                </div>
               </div>
             </li>
             <li>POSSE公式サイト<img src="img/icon/icon-link-gray-dark.svg" alt="" /></li>

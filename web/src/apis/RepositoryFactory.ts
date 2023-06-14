@@ -5,9 +5,9 @@ interface repositoryObject {
 }
 
 const repositories: repositoryObject = {
-  quiz: QuizRepository
+  quiz: QuizRepository,
 }
 
 export const RepositoryFactory = {
-  get: (name: string) => repositories[name]
+  get: (name: string) => repositories[name],
 }
