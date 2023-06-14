@@ -41,13 +41,14 @@ export class QuizModel {
     }
   }
   async update(id, quiz) {
-    const { quiz_text, supplement_text, supplement_url } = quiz
+    const { quiz_text, img, supplement_text, supplement_url } = quiz
     try {
       await connection.beginTransaction()
       const sql =
-        'UPDATE quizzes SET quiz_text = ?, supplement_text = ?, supplement_url = ? WHERE id = ?'
+        'UPDATE quizzes SET quiz_text = ?, img = ?, supplement_text = ?, supplement_url = ? WHERE id = ?'
       const [ResultSetHeader] = await connection.execute(sql, [
         quiz_text,
+        img,
         supplement_text,
         supplement_url,
         id,

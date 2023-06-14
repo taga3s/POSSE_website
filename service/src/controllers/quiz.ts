@@ -33,8 +33,7 @@ route.post('/', async (req: Request, res: Response) => {
   res.status(statusCode).json({ status, message })
 })
 
-// TODO: imgは後で
-route.patch('/:id', async (req: Request, res: Response) => {
+route.put('/:id', async (req: Request, res: Response) => {
   const id = req.params.id
   const { quiz_text, img, supplement_text, supplement_url, choices } = req.body
   const quizDTO = {
