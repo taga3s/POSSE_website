@@ -22,10 +22,9 @@
 
 ### フロントエンド
 
-- SPA
-- Repository Factory Pattern を検討中。（以前作ったメモアプリで、データフェッチロジックと、UI ロジックが混じってしまったため）  
-  @see https://qiita.com/07JP27/items/0923cbe3b6435c19d761  
-  @see https://tech.forstartups.com/entry/2021/07/27/194946
+- SPA での構築
+- Factory Pattern を試してみる
+  @see https://zenn.dev/tokyofactory/articles/99e4f6b6042f1c
 
 ### バックエンド
 
