@@ -8,6 +8,7 @@
 
 - Vue3 (Composition API)
 - sass
+- Tailwind CSS
 - TypeScript
 - vite
 
@@ -23,15 +24,15 @@
 ### フロントエンド
 
 - SPA での構築
-- Factory Pattern を試してみる
-  @see https://zenn.dev/tokyofactory/articles/99e4f6b6042f1c
+- Repository Pattern を試してみる  
+  @ref https://zenn.dev/tokyofactory/articles/99e4f6b6042f1c
 
 ### バックエンド
 
 - 三層アーキテクチャ(models, routes, services)による構築
 - Rest での API 開発  
-  @see https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
-  @see https://github.com/santiq/bulletproof-nodejs/tree/master
+  @ref https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
+  @ref https://github.com/santiq/bulletproof-nodejs/tree/master
 
 ### プロジェクトの始め方
 
