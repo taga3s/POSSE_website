@@ -2,6 +2,10 @@
 
 ![POSSE _ クイズ](https://github.com/Seiya-Tagami/POSSE_website/assets/107479598/bccb9cd6-ee3b-4d86-b251-fb2d9271cba2)
 
+## 概要
+
+大学一年生の頃に所属していたプログラミング学習コミュニティのウェブサイトを Vue3 + Express + TypeScript で再実装を行いました。
+
 ## 言語・環境
 
 ### フロントエンド
@@ -29,7 +33,7 @@
 
 ### バックエンド
 
-- 三層アーキテクチャ(models, routes, services)による構築
+- 三層アーキテクチャ(models, controllers, services)による構築
 - Rest での API 開発  
   @ref https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
   @ref https://github.com/santiq/bulletproof-nodejs/tree/master
