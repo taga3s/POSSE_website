@@ -1,19 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-
-type TQuiz = {
-  num: string;
-  text: string;
-  img: string;
-  choices: TChoice[];
-  cite_title: string;
-  url: string;
-};
-
-type TChoice = {
-  label: string;
-  isCorrect: number;
-};
+import { TChoice, TQuiz } from "../../../pages/QuizView.vue";
 
 /**
  * functions
@@ -69,15 +56,15 @@ const answer_title = ref<any>(null);
 <template>
   <div class="p-quiz js-quiz">
     <div class="p-quiz__header">
-      <div class="p-quiz__header__quiz-label">Q{{ props.quiz.num }}</div>
-      <span class="p-quiz__header__question">{{ props.quiz.text }}</span>
-      <figure class="p-quiz__header__image"><img :src="props.quiz.img" alt="" /></figure>
+      <div class="p-quiz__header__quiz-label">Q{{ props.quiz.id }}</div>
+      <span class="p-quiz__header__question">{{ props.quiz.quiz_text }}</span>
+      <figure class="p-quiz__header__image"><img :src="`/img/quiz/${props.quiz.img}`" alt="" /></figure>
     </div>
     <div class="p-quiz__answer-label">A</div>
     <div class="p-quiz__answer-box">
       <ul class="p-quiz__answer-box__choices">
         <li v-for="(c, index) in shuffledChoices" :key="index">
-          <button class="p-quiz__answer-box__choices__button is-attached-arrow js-choice" @click="checkAnswer(c.isCorrect)" ref="choice_buttons">{{ c.label }}</button>
+          <button class="p-quiz__answer-box__choices__button is-attached-arrow js-choice" @click="checkAnswer(c.isCorrect)" ref="choice_buttons">{{ c.name }}</button>
         </li>
       </ul>
       <div class="p-quiz__answer-box__answer js-answer" ref="answer">
@@ -86,13 +73,13 @@ const answer_title = ref<any>(null);
           <div>
             <span>A</span>
             <span>
-              {{ props.quiz.choices.find((c) => c.isCorrect === 1)?.label }}
+              {{ props.quiz.choices.find((c) => c.isCorrect === 1)?.name }}
             </span>
           </div>
         </div>
       </div>
-      <cite v-if="props.quiz.cite_title">
-        <a :href="props.quiz.url">{{ props.quiz.cite_title }}</a></cite
+      <cite v-if="props.quiz.supplement_text">
+        <a :href="props.quiz.supplement_url">{{ props.quiz.supplement_text }}</a></cite
       >
     </div>
   </div>
