@@ -1,5 +1,5 @@
 import express from 'express'
-import Quiz from './api/routes/quiz.js'
+import Quiz from './controllers/quiz.js'
 const app = express()
 const port = 8080
 app.use(express.json())

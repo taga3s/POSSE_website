@@ -1,10 +1,14 @@
-import { IChoiceDTO } from '../interfaces/IChoice.js'
+import { IChoicesDTO } from '../interfaces/IChoices.js'
 import { IQuizDTO } from '../interfaces/IQuiz.js'
 import { ChoicesModel } from '../models/ChoicesModel.js'
 import { QuizModel } from '../models/QuizModel.js'
 
 const quizModel = new QuizModel()
 const choicesModel = new ChoicesModel()
+
+//TODO: エラーハンドリング見直したい
+// TODO: Refactoring,  put or patch -> PR
+// TODO: フロントエンドとの繋ぎこみ
 
 export default class QuizService {
   public async getAllQuizzes() {
@@ -29,7 +33,7 @@ export default class QuizService {
     }
   }
 
-  public async createQuiz(quizDTO: IQuizDTO, choicesDTO: IChoiceDTO) {
+  public async createQuiz(quizDTO: IQuizDTO, choicesDTO: IChoicesDTO) {
     try {
       const quiz_id = await quizModel.create(quizDTO)
       await choicesModel.create(quiz_id, choicesDTO)
@@ -44,7 +48,7 @@ export default class QuizService {
     }
   }
 
-  public async updateQuiz(id: string, quizDTO: IQuizDTO, choicesDTO: IChoiceDTO) {
+  public async updateQuiz(id: string, quizDTO: IQuizDTO, choicesDTO: IChoicesDTO) {
     try {
       await quizModel.update(id, quizDTO)
       await choicesModel.update(id, choicesDTO)

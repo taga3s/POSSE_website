@@ -1,8 +1,7 @@
 import { ResultSetHeader } from 'mysql2'
 import { connection } from '../configs/dbconnect.js'
-import { IChoiceDTO } from '../interfaces/IChoice.js'
+import { IChoicesDTO } from '../interfaces/IChoices.js'
 
-//TODO: エラーハンドリング見直したい！
 export class ChoicesModel {
   public async getAll() {
     try {
@@ -17,8 +16,8 @@ export class ChoicesModel {
 
   public async getById(id: string) {
     try {
-      const sql = `SELECT * FROM choices WHERE quiz_id = ${id}`
-      const [rows] = await connection.execute(sql)
+      const sql = `SELECT * FROM choices WHERE quiz_id = ?`
+      const [rows] = await connection.execute(sql, [id])
       return rows
     } catch (error) {
       if (error instanceof Error) console.log(error.message)
@@ -26,7 +25,7 @@ export class ChoicesModel {
     }
   }
 
-  public async create(quiz_id: number, choices: IChoiceDTO) {
+  public async create(quiz_id: number, choices: IChoicesDTO) {
     const { choices_data } = choices
     try {
       await connection.beginTransaction()
@@ -43,7 +42,7 @@ export class ChoicesModel {
     }
   }
 
-  public async update(quiz_id: string, choices: IChoiceDTO) {
+  public async update(quiz_id: string, choices: IChoicesDTO) {
     const { choices_data } = choices
     try {
       await connection.beginTransaction()

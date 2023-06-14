@@ -3,6 +3,6 @@ export interface IChoice {
   isCorrect: boolean
 }
 
-export interface IChoiceDTO {
+export interface IChoicesDTO {
   choices_data: IChoice[]
 }

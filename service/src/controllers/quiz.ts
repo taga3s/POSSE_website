@@ -1,11 +1,11 @@
 import { Request, Response, Router } from 'express'
-import { logger } from '../middlewares/logger.js'
-import QuizService from '../../services/QuizService.js'
-
-const quizService = new QuizService()
+import { logger } from './middlewares/logger.js'
+import QuizService from '../services/QuizService.js'
 
 const route = Router()
 route.use(logger)
+
+const quizService = new QuizService()
 
 route.get('/', async (req: Request, res: Response) => {
   const { quizzes, choices, statusCode } = await quizService.getAllQuizzes()
