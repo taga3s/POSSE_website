@@ -2,12 +2,17 @@
 
 ![POSSE _ クイズ](https://github.com/Seiya-Tagami/POSSE_website/assets/107479598/bccb9cd6-ee3b-4d86-b251-fb2d9271cba2)
 
+## 概要
+
+大学一年生の頃に所属していたプログラミング学習コミュニティのウェブサイトを Vue3 + Express + TypeScript で再実装を行いました。
+
 ## 言語・環境
 
 ### フロントエンド
 
 - Vue3 (Composition API)
 - sass
+- Tailwind CSS
 - TypeScript
 - vite
 
@@ -18,21 +23,21 @@
 - mysql
 - docker
 
-## 設計（予定）
+## 設計
 
 ### フロントエンド
 
-- SPA
-- Repository Factory Pattern を検討中。（以前作ったメモアプリで、データフェッチロジックと、UI ロジックが混じってしまったため）  
-  @see https://qiita.com/07JP27/items/0923cbe3b6435c19d761  
-  @see https://tech.forstartups.com/entry/2021/07/27/194946
+- SPA での構築
+- Repository Pattern を試してみた  
+  @ref https://zenn.dev/chida/articles/5756a54d94230a  
+  @ref https://qiita.com/07JP27/items/0923cbe3b6435c19d761
 
 ### バックエンド
 
-- 三層アーキテクチャ(models, routes, services)による構築
+- 三層アーキテクチャ(models, controllers, services)による構築
 - Rest での API 開発  
-  @see https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
-  @see https://github.com/santiq/bulletproof-nodejs/tree/master
+  @ref https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
+  @ref https://github.com/santiq/bulletproof-nodejs/tree/master
 
 ### プロジェクトの始め方
 
