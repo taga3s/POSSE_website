@@ -6,8 +6,9 @@ import { QuizModel } from '../models/QuizModel.js'
 const quizModel = new QuizModel()
 const choicesModel = new ChoicesModel()
 
-// TODO: next -> フロントエンドとの繋ぎこみ
+// TODO: バリデーションを仕込む
 //TODO: エラーハンドリング見直したい
+
 // TODO: imgは後で保存処理を作る
 
 export default class QuizService {
