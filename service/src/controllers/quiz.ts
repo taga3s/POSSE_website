@@ -1,6 +1,8 @@
 import { Request, Response, Router } from 'express'
+import { validationResult } from 'express-validator'
 import { logger } from './middlewares/logger.js'
 import QuizService from '../services/QuizService.js'
+import { checkQuizVal } from './middlewares/validations/quiz.js'
 
 const route = Router()
 route.use(logger)
@@ -18,7 +20,14 @@ route.get('/:id', async (req: Request, res: Response) => {
   res.status(statusCode).json({ quiz, choices })
 })
 
-route.post('/', async (req: Request, res: Response) => {
+route.post('/', checkQuizVal, async (req: Request, res: Response) => {
+  const err = validationResult(req)
+  if (!err.isEmpty()) {
+    console.log(err.mapped())
+    res.status(500).send({})
+    return
+  }
+
   const { quiz_text, img, supplement_text, supplement_url, choices } = req.body
   const quizDTO = {
     quiz_text,
@@ -33,7 +42,14 @@ route.post('/', async (req: Request, res: Response) => {
   res.status(statusCode).json({ status, message })
 })
 
-route.put('/:id', async (req: Request, res: Response) => {
+route.put('/:id', checkQuizVal, async (req: Request, res: Response) => {
+  const err = validationResult(req)
+  if (!err.isEmpty()) {
+    console.log(err.mapped())
+    res.status(500).send({})
+    return
+  }
+
   const id = req.params.id
   const { quiz_text, img, supplement_text, supplement_url, choices } = req.body
   const quizDTO = {

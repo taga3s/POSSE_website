@@ -2,9 +2,10 @@ import { ChoicesModel } from '../models/ChoicesModel.js'
 import { QuizModel } from '../models/QuizModel.js'
 const quizModel = new QuizModel()
 const choicesModel = new ChoicesModel()
-// TODO: バリデーションを仕込む
 //TODO: エラーハンドリング見直したい
+//TODO: logger
 // TODO: imgは後で保存処理を作る
+// appendix: 疑似DI
 export default class QuizService {
   async getAllQuizzes() {
     try {
