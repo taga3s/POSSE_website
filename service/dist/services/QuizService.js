@@ -1,74 +1,63 @@
-import { ChoicesModel } from '../models/ChoicesModel.js'
-import { QuizModel } from '../models/QuizModel.js'
-import { customLogger } from '../utils/logger.js'
-const quizModel = new QuizModel()
-const choicesModel = new ChoicesModel()
-//TODO: エラーハンドリング見直したい
+import { ChoicesModel } from '../models/ChoicesModel.js';
+import { QuizModel } from '../models/QuizModel.js';
+import { checkResponse } from '../utils/checkResponse.js';
+const quizModel = new QuizModel();
+const choicesModel = new ChoicesModel();
 //TODO: fetch側 json.parse()
 // TODO: imgは後で保存処理を作る
 // appendix: 疑似DI
 export default class QuizService {
-  async getAllQuizzes() {
-    try {
-      const quizzes = await quizModel.getAll()
-      const choices = await choicesModel.getAll()
-      customLogger.debug(JSON.stringify({ quizzes, choices }))
-      return { quizzes: quizzes, choices: choices, statusCode: 200 }
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      return { quizzes: null, choices: null, statusCode: 500 }
+    async getAllQuizzes() {
+        const quizzes = await quizModel.getAll();
+        const choices = await choicesModel.getAll();
+        if (checkResponse(quizzes) && checkResponse(choices)) {
+            return { quizzes: quizzes, choices: choices };
+        }
+        else {
+            throw new Error('There is no quiz data');
+        }
     }
-  }
-  async getQuizById(id) {
-    try {
-      const quiz = await quizModel.getById(id)
-      const choices = await choicesModel.getById(id)
-      customLogger.debug(JSON.stringify({ quiz, choices }))
-      return { quiz: quiz, choices: choices, statusCode: 200 }
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      return { quiz: null, statusCode: 500 }
+    async getQuizById(id) {
+        const quiz = await quizModel.getById(id);
+        const choices = await choicesModel.getById(id);
+        if (checkResponse(quiz) && checkResponse(choices)) {
+            return { quiz: quiz, choices: choices };
+        }
+        else {
+            throw new Error(`There is no id:${id} quiz data`);
+        }
     }
-  }
-  async createQuiz(quizDTO, choicesDTO) {
-    try {
-      const quiz_id = await quizModel.create(quizDTO)
-      await choicesModel.create(quiz_id, choicesDTO)
-      return { statusCode: 201, status: 'success', message: 'successfully posted data' }
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      return {
-        statusCode: 500,
-        status: '500 Internal Server Error',
-        message: error instanceof Error ? error.message : 'something went wrong...',
-      }
+    async createQuiz(quizDTO, choicesDTO) {
+        const quiz_id = await quizModel.create(quizDTO);
+        if (!quiz_id) {
+            throw new Error('Failed posting a new quiz content');
+        }
+        const isChoicesCreated = await choicesModel.create(quiz_id, choicesDTO);
+        if (isChoicesCreated) {
+            return { status: 'success', message: 'Successfully posted data' };
+        }
+        else {
+            throw new Error('Failed posting a new choices content');
+        }
     }
-  }
-  async updateQuiz(id, quizDTO, choicesDTO) {
-    try {
-      await quizModel.update(id, quizDTO)
-      await choicesModel.update(id, choicesDTO)
-      return { statusCode: 201, status: 'success', message: 'successfully posted data' }
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      return {
-        statusCode: 500,
-        status: '500 Internal Server Error',
-        message: error instanceof Error ? error.message : 'something went wrong...',
-      }
+    async updateQuiz(id, quizDTO, choicesDTO) {
+        const isQuizUpdated = await quizModel.update(id, quizDTO);
+        const isChoicesUpdated = await choicesModel.update(id, choicesDTO);
+        if (isQuizUpdated && isChoicesUpdated) {
+            return { status: 'success', message: 'Successfully updated data' };
+        }
+        else {
+            throw new Error(`Failed updating id:${id} quiz data`);
+        }
     }
-  }
-  async deleteQuizById(id) {
-    try {
-      await choicesModel.deleteById(id)
-      await quizModel.deleteById(id)
-      return { statusCode: 202, status: 'success', message: 'successfully deleted data' }
-    } catch (error) {
-      return {
-        statusCode: 500,
-        status: '500 Internal Server Error',
-        message: error instanceof Error ? error.message : 'something went wrong...',
-      }
+    async deleteQuizById(id) {
+        const isChoicesDeleted = await choicesModel.deleteById(id);
+        const isQuizDeleted = await quizModel.deleteById(id);
+        if (isChoicesDeleted && isQuizDeleted) {
+            return { status: 'success', message: 'Successfully deleted data' };
+        }
+        else {
+            throw new Error(`Failed deleting id:${id} quiz data`);
+        }
     }
-  }
 }

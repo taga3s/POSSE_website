@@ -5,9 +5,8 @@ export class ChoicesModel {
       const sql = 'SELECT * FROM choices'
       const [rows] = await connection.execute(sql)
       return rows
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
   async getById(id) {
@@ -15,9 +14,8 @@ export class ChoicesModel {
       const sql = `SELECT * FROM choices WHERE quiz_id = ?`
       const [rows] = await connection.execute(sql, [id])
       return rows
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
   async create(quiz_id, choices) {
@@ -29,9 +27,9 @@ export class ChoicesModel {
         connection.execute(sql, [quiz_id, c.name, c.isCorrect])
       })
       await connection.commit()
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+      return true
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
   async update(quiz_id, choices) {
@@ -44,9 +42,9 @@ export class ChoicesModel {
         connection.execute(sql, [c.name, c.isCorrect, id])
       })
       await connection.commit()
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+      return true
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
   async deleteById(id) {
@@ -55,11 +53,11 @@ export class ChoicesModel {
       const sql = 'DELETE FROM choices WHERE `quiz_id` = ?'
       const [ResultSetHeader] = await connection.execute(sql, [id])
       const rsh = ResultSetHeader
-      if (rsh.affectedRows == 0) throw new Error('there is no data')
+      if (rsh.affectedRows == 0) throw new Error(`There is no id:${id} choices content data`)
       await connection.commit()
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed deleting data')
+      return true
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
 }

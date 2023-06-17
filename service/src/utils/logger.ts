@@ -1,4 +1,4 @@
-import { createLogger, format, transports } from 'winston'
+import { Logger, createLogger, format, transports } from 'winston'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const { colorize, simple, timestamp, errors, printf } = format
 
-export const customLogger = createLogger({
+export const customLogger: Logger = createLogger({
   format: format.combine(
     colorize(),
     simple(),

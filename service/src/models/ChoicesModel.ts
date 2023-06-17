@@ -8,9 +8,8 @@ export class ChoicesModel {
       const sql = 'SELECT * FROM choices'
       const [rows] = await connection.execute(sql)
       return rows
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
 
@@ -19,9 +18,8 @@ export class ChoicesModel {
       const sql = `SELECT * FROM choices WHERE quiz_id = ?`
       const [rows] = await connection.execute(sql, [id])
       return rows
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
 
@@ -36,9 +34,10 @@ export class ChoicesModel {
       })
 
       await connection.commit()
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+
+      return true
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
 
@@ -54,9 +53,10 @@ export class ChoicesModel {
       })
 
       await connection.commit()
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+
+      return true
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
 
@@ -68,12 +68,13 @@ export class ChoicesModel {
       const [ResultSetHeader] = await connection.execute(sql, [id])
 
       const rsh = ResultSetHeader as ResultSetHeader
-      if (rsh.affectedRows == 0) throw new Error('there is no data')
+      if (rsh.affectedRows == 0) throw new Error(`There is no id:${id} choices content data`)
 
       await connection.commit()
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed deleting data')
+
+      return true
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
 }

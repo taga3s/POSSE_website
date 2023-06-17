@@ -5,9 +5,8 @@ export class QuizModel {
       const sql = 'SELECT * FROM quizzes'
       const [rows] = await connection.execute(sql)
       return rows
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
   async getById(id) {
@@ -15,9 +14,8 @@ export class QuizModel {
       const sql = 'SELECT * FROM quizzes WHERE `id` = ?'
       const [rows] = await connection.execute(sql, [id])
       return rows
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed getting data')
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
   async create(quiz) {
@@ -35,9 +33,8 @@ export class QuizModel {
       const rsh = ResultSetHeader
       await connection.commit()
       return rsh.insertId
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed posting data')
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
   async update(id, quiz) {
@@ -54,11 +51,11 @@ export class QuizModel {
         id,
       ])
       const rsh = ResultSetHeader
-      if (rsh.affectedRows == 0) throw new Error('there is no data')
+      if (rsh.affectedRows == 0) throw new Error(`There is no id:${id} quiz content data`)
       await connection.commit()
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed updating data')
+      return true
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
   async deleteById(id) {
@@ -67,11 +64,11 @@ export class QuizModel {
       const sql = 'DELETE FROM quizzes WHERE `id` = ?'
       const [ResultSetHeader] = await connection.execute(sql, [id])
       const rsh = ResultSetHeader
-      if (rsh.affectedRows == 0) throw new Error('there is no data')
+      if (rsh.affectedRows == 0) throw new Error(`There is no id:${id} quiz content data`)
       await connection.commit()
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message)
-      throw new Error('failed deleting data')
+      return true
+    } catch (e) {
+      throw new Error(`${e}`)
     }
   }
 }
