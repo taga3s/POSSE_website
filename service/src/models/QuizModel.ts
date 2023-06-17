@@ -10,7 +10,7 @@ export class QuizModel {
       const [rows] = await connection.execute(sql)
       return rows
     } catch (e) {
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 
@@ -20,7 +20,7 @@ export class QuizModel {
       const [rows] = await connection.execute(sql, [id])
       return rows
     } catch (e) {
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 
@@ -44,7 +44,7 @@ export class QuizModel {
       return rsh.insertId
     } catch (e) {
       await connection.rollback()
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 
@@ -70,7 +70,7 @@ export class QuizModel {
       return true
     } catch (e) {
       await connection.rollback()
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 
@@ -88,7 +88,7 @@ export class QuizModel {
       return true
     } catch (e) {
       await connection.rollback()
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 }

@@ -10,7 +10,7 @@ export class ChoicesModel {
       const [rows] = await connection.execute(sql)
       return rows
     } catch (e) {
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 
@@ -20,7 +20,7 @@ export class ChoicesModel {
       const [rows] = await connection.execute(sql, [id])
       return rows
     } catch (e) {
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 
@@ -39,7 +39,7 @@ export class ChoicesModel {
       return true
     } catch (e) {
       await connection.rollback()
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 
@@ -59,7 +59,7 @@ export class ChoicesModel {
       return true
     } catch (e) {
       await connection.rollback()
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 
@@ -78,7 +78,7 @@ export class ChoicesModel {
       return true
     } catch (e) {
       await connection.rollback()
-      customLogger.error('🔥 error: %o', e)
+      customLogger.error(`🔥 error: ${e}`)
     }
   }
 }

@@ -253,3 +253,66 @@ info: Server is running at http://localhost:8080
 [2023-06-17 21:04:47] [[32minfo[39m] Server is running at http://localhost:8080
 [2023-06-17 21:04:57] [[32minfo[39m] Server is running at http://localhost:8080
 [2023-06-17 21:04:58] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:23:48] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:23:48] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:23:48] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:23:55] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:23:55] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:23:55] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:24:01] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:24:03] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:24:03] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:24:03] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:24:18] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:24:23] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:24:28] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:24:33] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:24:34] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:24:34] [[31merror[39m] 🔥 errosr: %o
+[2023-06-17 21:24:34] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:25:03] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:25:04] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:25:04] [[31merror[39m] 🔥 errosr: %o
+[2023-06-17 21:25:04] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:25:27] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:26:31] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:26:33] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:26:33] [[31merror[39m] 🔥 error: Error: There is no id:14 quiz content data
+[2023-06-17 21:26:33] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:27:35] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:27:57] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:27:58] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:28:01] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:28:01] [[31merror[39m] 🔥 error: Error: There is no id:14 quiz content data
+[2023-06-17 21:28:01] [[31merror[39m] 🔥 error: Error: Failed deleting id:14 quiz data
+[2023-06-17 21:29:06] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:29:07] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:29:07] [[31merror[39m] 🔥 error: Error: There is no id:14 quiz content data
+[2023-06-17 21:29:07] [[31merror[39m] 🔥 error: Error: Failed deleting id:14 quiz data
+[2023-06-17 21:29:18] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:29:19] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:29:19] [[31merror[39m] 🔥 error: Error: Failed deleting id:14 quiz data
+[2023-06-17 21:29:23] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:29:56] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:29:57] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:29:57] [[31merror[39m] 🔥 error: Error: There is no id:14 quiz content data
+[2023-06-17 21:29:57] [[31merror[39m] 🔥 error: Error: Failed deleting id:14 quiz data
+[2023-06-17 21:30:20] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:30:24] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:30:24] [[31merror[39m] 🔥 error: Error: There is no id:14 quiz content data
+[2023-06-17 21:30:24] [[31merror[39m] 🔥 error: Error: Failed deleting id:14 quiz data
+[2023-06-17 21:30:29] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:30:32] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:30:32] [[31merror[39m] 🔥 errr: Error: There is no id:14 quiz content data
+[2023-06-17 21:30:32] [[31merror[39m] 🔥 error: Error: Failed deleting id:14 quiz data
+[2023-06-17 21:30:37] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:31:08] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:31:10] [[31merror[39m] 🔥 error: Error: There is no id:14 choices content data
+[2023-06-17 21:31:10] [[31merror[39m] 🔥 error: Error: There is no id:14 quiz content data
+[2023-06-17 21:31:10] [[31merror[39m] 🔥 error: Error: Failed deleting id:14 quiz data
+[2023-06-17 21:31:41] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:31:46] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:31:51] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:32:52] [[31merror[39m] 🔥 error: Error: There is no id:14 choices content data
+[2023-06-17 21:32:52] [[31merror[39m] 🔥 error: Error: There is no id:14 quiz content data
+[2023-06-17 21:32:52] [[31merror[39m] 🔥 error: Error: Failed deleting id:14 quiz data

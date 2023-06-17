@@ -13,7 +13,7 @@ route.get('/', async (req: Request, res: Response, next: NextFunction) => {
     customLogger.debug(`🔧 debug: ${JSON.stringify({ quizzes, choices })}`)
     return res.status(200).json({ quizzes, choices })
   } catch (e) {
-    customLogger.error('🔥 error: %o', e)
+    customLogger.error(`🔥 error: ${e}`)
     return next(e)
   }
 })
@@ -25,7 +25,8 @@ route.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
     customLogger.debug(JSON.stringify({ quiz, choices }))
     return res.status(200).json({ quiz, choices })
   } catch (e) {
-    customLogger.error('🔥 error: %o', e)
+    customLogger.error(`🔥 error: ${e}`)
+
     return next(e)
   }
 })
@@ -46,7 +47,7 @@ route.post('/', quizValValidator, async (req: Request, res: Response, next: Next
     customLogger.debug(`🔧 debug: [${status}] ${message}`)
     return res.status(201).json({ status, message })
   } catch (e) {
-    customLogger.error('🔥 error: %o', e)
+    customLogger.error(`🔥 error: ${e}`)
     return next(e)
   }
 })
@@ -68,7 +69,7 @@ route.put('/:id', quizValValidator, async (req: Request, res: Response, next: Ne
     customLogger.debug(`🔧 debug: [${status}] ${message}`)
     return res.status(204).json({ status, message })
   } catch (e) {
-    customLogger.error('🔥 error: %o', e)
+    customLogger.error(`🔥 error: ${e}`)
     return next(e)
   }
 })
@@ -80,7 +81,7 @@ route.delete('/:id', async (req: Request, res: Response, next: NextFunction) => 
     customLogger.debug(`🔧 debug: [${status}] ${message}`)
     return res.status(202).json({ status, message })
   } catch (e) {
-    customLogger.error('🔥 error: %o', e)
+    customLogger.error(`🔥 error: ${e}`)
     return next(e)
   }
 })

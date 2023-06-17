@@ -8,7 +8,7 @@ export class QuizModel {
             return rows;
         }
         catch (e) {
-            customLogger.error('🔥 error: %o', e);
+            customLogger.error(`🔥 error: ${e}`);
         }
     }
     async getById(id) {
@@ -18,7 +18,7 @@ export class QuizModel {
             return rows;
         }
         catch (e) {
-            customLogger.error('🔥 error: %o', e);
+            customLogger.error(`🔥 error: ${e}`);
         }
     }
     async create(quiz) {
@@ -38,7 +38,7 @@ export class QuizModel {
         }
         catch (e) {
             await connection.rollback();
-            customLogger.error('🔥 error: %o', e);
+            customLogger.error(`🔥 error: ${e}`);
         }
     }
     async update(id, quiz) {
@@ -61,7 +61,7 @@ export class QuizModel {
         }
         catch (e) {
             await connection.rollback();
-            customLogger.error('🔥 error: %o', e);
+            customLogger.error(`🔥 error: ${e}`);
         }
     }
     async deleteById(id) {
@@ -77,7 +77,7 @@ export class QuizModel {
         }
         catch (e) {
             await connection.rollback();
-            customLogger.error('🔥 error: %o', e);
+            customLogger.error(`🔥 error: ${e}`);
         }
     }
 }
