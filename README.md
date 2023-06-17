@@ -1,6 +1,10 @@
 # POSSE_website
 
+クイズページ
+
 ![POSSE _ クイズ](https://github.com/Seiya-Tagami/POSSE_website/assets/107479598/bccb9cd6-ee3b-4d86-b251-fb2d9271cba2)
+
+管理画面
 
 ## 概要
 
