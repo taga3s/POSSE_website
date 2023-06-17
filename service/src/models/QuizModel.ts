@@ -1,6 +1,7 @@
 import { ResultSetHeader } from 'mysql2'
 import { connection } from '../configs/dbconnect.js'
 import { IQuizDTO } from '../interfaces/IQuiz.js'
+import { customLogger } from '../utils/logger.js'
 
 export class QuizModel {
   public async getAll() {
@@ -9,7 +10,7 @@ export class QuizModel {
       const [rows] = await connection.execute(sql)
       return rows
     } catch (e) {
-      throw new Error(`${e}`)
+      customLogger.error('🔥 error: %o', e)
     }
   }
 
@@ -19,7 +20,7 @@ export class QuizModel {
       const [rows] = await connection.execute(sql, [id])
       return rows
     } catch (e) {
-      throw new Error(`${e}`)
+      customLogger.error('🔥 error: %o', e)
     }
   }
 
@@ -42,7 +43,8 @@ export class QuizModel {
 
       return rsh.insertId
     } catch (e) {
-      throw new Error(`${e}`)
+      await connection.rollback()
+      customLogger.error('🔥 error: %o', e)
     }
   }
 
@@ -67,7 +69,8 @@ export class QuizModel {
 
       return true
     } catch (e) {
-      throw new Error(`${e}`)
+      await connection.rollback()
+      customLogger.error('🔥 error: %o', e)
     }
   }
 
@@ -84,7 +87,8 @@ export class QuizModel {
 
       return true
     } catch (e) {
-      throw new Error(`${e}`)
+      await connection.rollback()
+      customLogger.error('🔥 error: %o', e)
     }
   }
 }

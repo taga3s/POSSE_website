@@ -222,3 +222,34 @@ info: Server is running at http://localhost:8080
 [2023-06-17 20:41:40] [[31merror[39m] 🔥 error: %o
 [2023-06-17 20:42:03] [[32minfo[39m] Server is running at http://localhost:8080
 [2023-06-17 20:42:04] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:45:09] [[31merror[39m] 🔥 error: %o
+[2023-06-17 20:45:37] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:45:59] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:46:01] [[31merror[39m] 🔥 error: %o
+[2023-06-17 20:52:57] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:53:03] [[31merror[39m] 🔥 error: %o
+[2023-06-17 20:53:44] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:53:46] [[31merror[39m] 🔥 error: %o
+[2023-06-17 20:55:08] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:55:11] [[31merror[39m] 🔥 error: %o
+[2023-06-17 20:55:35] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:55:36] [[31merror[39m] 🔥 error: %o
+[2023-06-17 20:57:01] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:57:20] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:57:25] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:57:25] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 20:59:59] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:00:02] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:00:05] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:01:35] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:01:37] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:01:37] [[31merror[39m] error: Error: There is no id:14 quiz content data
+[2023-06-17 21:01:37] [[31merror[39m] 🔥 error: %o
+[2023-06-17 21:02:07] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:03:28] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:04:25] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:04:28] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:04:39] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:04:47] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:04:57] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 21:04:58] [[32minfo[39m] Server is running at http://localhost:8080
