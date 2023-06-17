@@ -7,7 +7,6 @@ import { checkResponse } from '../utils/checkResponse.js'
 const quizModel = new QuizModel()
 const choicesModel = new ChoicesModel()
 
-//TODO: fetch側 json.parse()
 // TODO: imgは後で保存処理を作る
 // appendix: 疑似DI
 

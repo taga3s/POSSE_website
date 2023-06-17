@@ -79,7 +79,7 @@ route.delete('/:id', async (req: Request, res: Response, next: NextFunction) => 
     const id = req.params.id
     const { status, message } = await quizService.deleteQuizById(id)
     customLogger.debug(`🔧 debug: [${status}] ${message}`)
-    return res.status(202).json({ status, message })
+    return res.status(204).json({ status, message })
   } catch (e) {
     customLogger.error(`🔥 error: ${e}`)
     return next(e)

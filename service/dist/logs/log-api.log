@@ -316,3 +316,7 @@ info: Server is running at http://localhost:8080
 [2023-06-17 21:32:52] [[31merror[39m] 🔥 error: Error: There is no id:14 choices content data
 [2023-06-17 21:32:52] [[31merror[39m] 🔥 error: Error: There is no id:14 quiz content data
 [2023-06-17 21:32:52] [[31merror[39m] 🔥 error: Error: Failed deleting id:14 quiz data
+[2023-06-17 23:16:18] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 23:16:35] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 23:23:07] [[32minfo[39m] Server is running at http://localhost:8080
+[2023-06-17 23:26:33] [[32minfo[39m] Server is running at http://localhost:8080
