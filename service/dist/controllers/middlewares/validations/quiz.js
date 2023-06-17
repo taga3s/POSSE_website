@@ -1,8 +1,8 @@
-import { check } from 'express-validator';
-export const checkQuizVal = [
-    check('quiz_text').notEmpty().isString().isLength({ min: 1 }),
-    check('img').notEmpty().isString().isLength({ min: 1 }),
-    check('supplement_text').notEmpty().isString().isLength({ min: 1 }),
-    check('supplement_url').notEmpty().isString().isLength({ min: 1 }),
-    check('choices').notEmpty().isArray({ min: 3, max: 3 }),
-];
+import { check } from 'express-validator'
+export const quizValValidator = [
+  check('quiz_text').isString().isLength({ min: 1 }).withMessage('必須項目です。'),
+  check('img').isString().isLength({ min: 1 }).withMessage('必須項目です。'),
+  check('supplement_text').isString(),
+  check('supplement_url').isString(),
+  check('choices').isArray({ min: 3, max: 3 }).withMessage('選択肢は三つ登録する必要があります。'),
+]

@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { validationResult } from 'express-validator'
 import { logger } from './middlewares/logger.js'
 import QuizService from '../services/QuizService.js'
-import { checkQuizVal } from './middlewares/validations/quiz.js'
+import { quizValValidator } from './middlewares/validations/quiz.js'
 const route = Router()
 route.use(logger)
 const quizService = new QuizService()
@@ -15,12 +15,10 @@ route.get('/:id', async (req, res) => {
   const { quiz, choices, statusCode } = await quizService.getQuizById(id)
   res.status(statusCode).json({ quiz, choices })
 })
-route.post('/', checkQuizVal, async (req, res) => {
+route.post('/', quizValValidator, async (req, res) => {
   const err = validationResult(req)
   if (!err.isEmpty()) {
-    console.log(err.mapped())
-    res.status(500).send({})
-    return
+    return res.status(422).send({ errors: err.array() })
   }
   const { quiz_text, img, supplement_text, supplement_url, choices } = req.body
   const quizDTO = {
@@ -35,7 +33,7 @@ route.post('/', checkQuizVal, async (req, res) => {
   const { statusCode, status, message } = await quizService.createQuiz(quizDTO, choicesDTO)
   res.status(statusCode).json({ status, message })
 })
-route.put('/:id', checkQuizVal, async (req, res) => {
+route.put('/:id', quizValValidator, async (req, res) => {
   const err = validationResult(req)
   if (!err.isEmpty()) {
     console.log(err.mapped())
