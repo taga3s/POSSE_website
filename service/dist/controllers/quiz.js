@@ -1,9 +1,7 @@
 import { Router } from 'express'
-import { logger } from './middlewares/logger.js'
 import QuizService from '../services/QuizService.js'
 import { quizValValidator } from './middlewares/validations/quiz.js'
 const route = Router()
-route.use(logger)
 const quizService = new QuizService()
 route.get('/', async (req, res) => {
   const { quizzes, choices, statusCode } = await quizService.getAllQuizzes()

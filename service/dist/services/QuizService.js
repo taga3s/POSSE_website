@@ -1,9 +1,10 @@
 import { ChoicesModel } from '../models/ChoicesModel.js'
 import { QuizModel } from '../models/QuizModel.js'
+import { customLogger } from '../utils/logger.js'
 const quizModel = new QuizModel()
 const choicesModel = new ChoicesModel()
-//TODO: logger
 //TODO: エラーハンドリング見直したい
+//TODO: fetch側 json.parse()
 // TODO: imgは後で保存処理を作る
 // appendix: 疑似DI
 export default class QuizService {
@@ -11,6 +12,7 @@ export default class QuizService {
     try {
       const quizzes = await quizModel.getAll()
       const choices = await choicesModel.getAll()
+      customLogger.debug(JSON.stringify({ quizzes, choices }))
       return { quizzes: quizzes, choices: choices, statusCode: 200 }
     } catch (error) {
       if (error instanceof Error) console.log(error.message)
@@ -21,6 +23,7 @@ export default class QuizService {
     try {
       const quiz = await quizModel.getById(id)
       const choices = await choicesModel.getById(id)
+      customLogger.debug(JSON.stringify({ quiz, choices }))
       return { quiz: quiz, choices: choices, statusCode: 200 }
     } catch (error) {
       if (error instanceof Error) console.log(error.message)
