@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { TChoice, TQuiz } from '../../../pages/QuizView.vue'
+import { TChoice, TQuiz } from '../../../types'
 
 /**
  * functions

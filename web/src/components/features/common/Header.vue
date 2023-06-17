@@ -1,9 +1,26 @@
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const ref_nav = ref<any>(null)
+
+const toggleMenu = () => {
+  ref_nav.value.classList.toggle('u-display-flex')
+}
+
+const route = useRoute()
+
+watch(route, () => {
+  ref_nav.value.classList.remove('u-display-flex')
+})
+</script>
+
 <template>
   <header class="p-header">
     <div class="p-header__container">
       <router-link to="/" class="p-header__logo"><img src="img/logo.svg" alt="" /></router-link>
       <nav>
-        <ul class="p-header__items-list js-navigation">
+        <ul class="p-header__items-list" ref="ref_nav">
           <li class="p-header__items-list__text01"><router-link to="/">POSSEとは</router-link></li>
           <li class="p-header__items-list__text02"><router-link to="/quiz">クイズ</router-link></li>
           <li class="p-header__items-list__sns">
@@ -32,7 +49,7 @@
           </ul>
         </ul>
       </nav>
-      <div class="p-header__hamburger js-hamburger">
+      <div class="p-header__hamburger" @click="toggleMenu">
         <span></span>
       </div>
     </div>
