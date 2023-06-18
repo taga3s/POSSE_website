@@ -1,5 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from "./components/features/common/Header.vue";
+import Sidebar from "./components/features/common/Sidebar.vue";
+</script>
 
 <template>
-  <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <Header />
+  <div class="flex">
+    <Sidebar />
+    <router-view></router-view>
+  </div>
 </template>
