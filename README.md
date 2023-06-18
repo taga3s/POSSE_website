@@ -35,14 +35,14 @@
 
 - モノレポ的な感じに成り行きでなりました
 
-### フロントエンド
+#### フロントエンド
 
 - SPA での構築
 - Repository Pattern を試してみた  
   @ref https://zenn.dev/chida/articles/5756a54d94230a  
   @ref https://qiita.com/07JP27/items/0923cbe3b6435c19d761
 
-### バックエンド
+#### バックエンド
 
 - 三層アーキテクチャ(models, controllers, services)による構築
 - Rest での API 開発  
