@@ -3,14 +3,6 @@
     <ul class="flex flex-col">
       <li>
         <router-link
-          to="/invite"
-          class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-t-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"
-        >
-          <i class="fa-solid fa-user-plus"></i>ユーザー招待
-        </router-link>
-      </li>
-      <li>
-        <router-link
           to="/"
           class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-t-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"
         >
@@ -20,9 +12,17 @@
       <li>
         <router-link
           to="/create"
-          class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-y-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"
+          class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-t-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"
         >
           <i class="fa-solid fa-user-plus"></i>問題作成
+        </router-link>
+      </li>
+      <li>
+        <router-link
+          to="/invite"
+          class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-y-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"
+        >
+          <i class="fa-solid fa-user-plus"></i>ユーザー招待
         </router-link>
       </li>
     </ul>
