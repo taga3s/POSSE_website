@@ -10,9 +10,13 @@
 
 大学一年生の頃に所属していたプログラミング学習コミュニティのウェブサイトを Vue3 + Express + TypeScript で再実装しました。
 
+## 制作期間
+
+- 2023/06 - 07
+
 ## 言語・環境
 
-### フロントエンド
+#### フロントエンド
 
 - Vue3 (Composition API)
 - sass
@@ -20,7 +24,7 @@
 - TypeScript
 - vite
 
-### バックエンド
+#### バックエンド
 
 - Express
 - TypeScript
@@ -29,21 +33,33 @@
 
 ## 設計
 
-### フロントエンド
+- モノレポ的な感じに成り行きでなりました
+  - web（サイトのフロントエンド）
+  - manager（クイズの管理画面）
+  - service（クイズ API や認証するためのバックエンド）
+
+#### フロントエンド
 
 - SPA での構築
 - Repository Pattern を試してみた  
   @ref https://zenn.dev/chida/articles/5756a54d94230a  
   @ref https://qiita.com/07JP27/items/0923cbe3b6435c19d761
 
-### バックエンド
+#### バックエンド
 
 - 三層アーキテクチャ(models, controllers, services)による構築
 - Rest での API 開発  
   @ref https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
   @ref https://github.com/santiq/bulletproof-nodejs/tree/master
 
-### プロジェクトの始め方
+## 反省点・改善点
+
+- `npm workspaces`等を活用して、環境をより快適したい
+- eslint や prettier の設定を見直したい
+- API のエラーハンドリングの理解を深める
+- キャッシュなども取り入れて、アプリケーションの高速化を図る
+
+## プロジェクトの始め方
 
 ### web
 
