@@ -29,6 +29,8 @@
 
 ## 設計
 
+- モノレポ的な感じに成り行きでなりました。
+
 ### フロントエンド
 
 - SPA での構築
@@ -42,6 +44,12 @@
 - Rest での API 開発  
   @ref https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
   @ref https://github.com/santiq/bulletproof-nodejs/tree/master
+
+### 反省点・改善点
+
+- `npm workspace`等を活用して、環境をより快適にしていきたい
+- API のエラーハンドリングの理解を深めたい
+- キャッシュなども取り入れて、アプリケーションの高速化を図りたい
 
 ### プロジェクトの始め方
 
