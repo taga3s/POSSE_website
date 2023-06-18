@@ -6,9 +6,11 @@
 
 管理画面
 
+![POSSE_website Manager](https://github.com/Seiya-Tagami/POSSE_website/assets/107479598/1f12c016-0fcd-4b52-9b60-92ecc4a0536a)
+
 ## 概要
 
-大学一年生の頃に所属していたプログラミング学習コミュニティのウェブサイトを Vue3 + Express + TypeScript で再実装しました。
+大学一年生の頃に所属していたプログラミング学習コミュニティの Web サイトを Vue3 + Express + TypeScript で再実装しました。
 
 ## 制作期間
 
