@@ -10,9 +10,13 @@
 
 大学一年生の頃に所属していたプログラミング学習コミュニティのウェブサイトを Vue3 + Express + TypeScript で再実装しました。
 
+## 制作期間
+
+- 2023/06 - 07
+
 ## 言語・環境
 
-### フロントエンド
+#### フロントエンド
 
 - Vue3 (Composition API)
 - sass
@@ -20,7 +24,7 @@
 - TypeScript
 - vite
 
-### バックエンド
+#### バックエンド
 
 - Express
 - TypeScript
@@ -29,7 +33,7 @@
 
 ## 設計
 
-- モノレポ的な感じに成り行きでなりました。
+- モノレポ的な感じに成り行きでなりました
 
 ### フロントエンド
 
@@ -45,14 +49,14 @@
   @ref https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
   @ref https://github.com/santiq/bulletproof-nodejs/tree/master
 
-### 反省点・改善点
+## 反省点・改善点
 
-- `npm workspace`等を活用して、環境をより快適にしていく
+- `npm workspaces`等を活用して、環境をより快適にする
 - eslint や prettier の設定を見直す
 - API のエラーハンドリングの理解を深める
 - キャッシュなども取り入れて、アプリケーションの高速化を図る
 
-### プロジェクトの始め方
+## プロジェクトの始め方
 
 ### web
 
