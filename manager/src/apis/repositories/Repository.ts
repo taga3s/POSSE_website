@@ -16,5 +16,8 @@ export default (resource: string) => {
     findById(id: number) {
       return repository.get(`${resource}/${id}`)
     },
+    deleteById(id: number) {
+      return repository.delete(`${resource}/${id}`)
+    },
   }
 }

@@ -6,9 +6,11 @@
 
 管理画面
 
+![POSSE_website Manager](https://github.com/Seiya-Tagami/POSSE_website/assets/107479598/1f12c016-0fcd-4b52-9b60-92ecc4a0536a)
+
 ## 概要
 
-大学一年生の頃に所属していたプログラミング学習コミュニティのウェブサイトを Vue3 + Express + TypeScript で再実装しました。
+大学一年生の頃に所属していたプログラミング学習コミュニティの Web サイトを Vue3 + Express + TypeScript で再実装しました。
 
 ## 制作期間
 
@@ -54,17 +56,17 @@
 
 ## 反省点・改善点
 
-- `npm workspaces`等を活用して、環境をより快適したい
+- `npm workspaces`等を活用して、環境を快適したい
 - eslint や prettier の設定を見直したい
 - API のエラーハンドリングの理解を深める
 - キャッシュなども取り入れて、アプリケーションの高速化を図る
 
 ## プロジェクトの始め方
 
-### web
+### web / manager
 
 ```sh
-$ cd web
+$ cd web / cd manager
 ```
 
 パッケージのインストール

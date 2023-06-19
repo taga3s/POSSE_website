@@ -20,6 +20,21 @@ const fetchQuizzes = async () => {
   })
 }
 
+const deleteQuiz = async (id: number) => {
+  if (window.confirm(`Do you really delete id:${id} quiz?`)) {
+    const res = await quizRepository.deleteById(id)
+
+    if (res.status === 204) {
+      alert(`Successfully deleted id:${id} quiz!`)
+      window.location.reload()
+    } else {
+      alert('Something went wrong...')
+    }
+  } else {
+    return
+  }
+}
+
 onMounted(() => {
   fetchQuizzes()
 })
@@ -39,7 +54,12 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <TableTr v-for="q in quizSet" :key="q.id" :quiz="q" />
+          <TableTr
+            v-for="q in quizSet"
+            :key="q.id"
+            :quiz="q"
+            @on-click-delete="(id) => deleteQuiz(id)"
+          />
         </tbody>
       </table>
     </div>
