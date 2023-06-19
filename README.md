@@ -66,7 +66,7 @@
 ### web / manager
 
 ```sh
-$ cd web
+$ cd web / cd manager
 ```
 
 パッケージのインストール
