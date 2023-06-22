@@ -43,6 +43,7 @@ route.post('/', quizValValidator, async (req: Request, res: Response, next: Next
     const choicesDTO = {
       choices_data: choices,
     }
+
     const { status, message } = await quizService.createQuiz(quizDTO, choicesDTO)
     customLogger.debug(`🔧 debug: [${status}] ${message}`)
     return res.status(201).json({ status, message })

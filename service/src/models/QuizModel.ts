@@ -24,8 +24,8 @@ export class QuizModel {
     }
   }
 
-  public async create(quiz: IQuizDTO) {
-    const { quiz_text, img, supplement_text, supplement_url } = quiz
+  public async create(quiz: IQuizDTO, fileName: string) {
+    const { quiz_text, supplement_text, supplement_url } = quiz
     try {
       await connection.beginTransaction()
 
@@ -33,7 +33,7 @@ export class QuizModel {
         'INSERT INTO quizzes(quiz_text, img, supplement_text, supplement_url) VALUES(?, ?, ?, ?)'
       const [ResultSetHeader] = await connection.execute(sql, [
         quiz_text,
-        img,
+        fileName,
         supplement_text,
         supplement_url,
       ])

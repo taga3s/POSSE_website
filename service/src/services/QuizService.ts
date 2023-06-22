@@ -1,3 +1,7 @@
+import fs from 'fs'
+import crypto from 'crypto'
+import { __dirname } from '../configs/path.js'
+
 import { IChoicesDTO } from '../interfaces/IChoices.js'
 import { IQuizDTO } from '../interfaces/IQuiz.js'
 import { ChoicesModel } from '../models/ChoicesModel.js'
@@ -7,7 +11,16 @@ import { checkResponse } from '../utils/checkResponse.js'
 const quizModel = new QuizModel()
 const choicesModel = new ChoicesModel()
 
-// TODO: imgは後で保存処理を作る
+const saveImgToLocal = (img: string) => {
+  const base64str = img.replace('data:image/png;base64,', '')
+  const fileName = `${crypto.randomUUID()}.png`
+  fs.promises.writeFile(`/${__dirname}/../../../web/public/img/quiz/${fileName}`, base64str, {
+    encoding: 'base64',
+  })
+
+  return fileName
+}
+
 // appendix: 疑似DI
 
 export default class QuizService {
@@ -34,7 +47,9 @@ export default class QuizService {
   }
 
   public async createQuiz(quizDTO: IQuizDTO, choicesDTO: IChoicesDTO) {
-    const quiz_id = await quizModel.create(quizDTO)
+    const fileName = saveImgToLocal(quizDTO.img)
+
+    const quiz_id = await quizModel.create(quizDTO, fileName)
     if (!quiz_id) {
       throw new Error('Failed posting a new quiz content')
     }
