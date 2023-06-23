@@ -1,5 +1,6 @@
 import { connection } from '../configs/dbconnect.js';
 import { customLogger } from '../utils/logger.js';
+import { saveImgToWebLocal } from '../utils/saveImgToWebLocal.js';
 export class QuizModel {
     async getAll() {
         try {
@@ -21,9 +22,10 @@ export class QuizModel {
             customLogger.error(`🔥 error: ${e}`);
         }
     }
-    async create(quiz, fileName) {
-        const { quiz_text, supplement_text, supplement_url } = quiz;
+    async create(quiz) {
+        const { quiz_text, supplement_text, img, supplement_url } = quiz;
         try {
+            const fileName = saveImgToWebLocal(img);
             await connection.beginTransaction();
             const sql = 'INSERT INTO quizzes(quiz_text, img, supplement_text, supplement_url) VALUES(?, ?, ?, ?)';
             const [ResultSetHeader] = await connection.execute(sql, [

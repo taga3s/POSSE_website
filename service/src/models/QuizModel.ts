@@ -2,6 +2,7 @@ import { ResultSetHeader } from 'mysql2'
 import { connection } from '../configs/dbconnect.js'
 import { IQuizDTO } from '../interfaces/IQuiz.js'
 import { customLogger } from '../utils/logger.js'
+import { saveImgToWebLocal } from '../utils/saveImgToWebLocal.js'
 
 export class QuizModel {
   public async getAll() {
@@ -24,9 +25,11 @@ export class QuizModel {
     }
   }
 
-  public async create(quiz: IQuizDTO, fileName: string) {
-    const { quiz_text, supplement_text, supplement_url } = quiz
+  public async create(quiz: IQuizDTO) {
+    const { quiz_text, supplement_text, img, supplement_url } = quiz
     try {
+      const fileName = saveImgToWebLocal(img)
+
       await connection.beginTransaction()
 
       const sql =
