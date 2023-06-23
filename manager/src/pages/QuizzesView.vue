@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TableTr from '../components/features/Quizzes/TableTr.vue'
+import TableItem from '../components/features/Quizzes/TableItem.vue'
 import { RepositoryFactory } from '../apis/RepositoryFactory'
 import { onMounted, ref } from 'vue'
 
@@ -54,7 +54,7 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <TableTr
+          <TableItem
             v-for="q in quizSet"
             :key="q.id"
             :quiz="q"

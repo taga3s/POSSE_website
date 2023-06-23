@@ -1,9 +1,6 @@
 import { Logger, createLogger, format, transports } from 'winston'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { __dirname } from '../configs/path.js'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 const { colorize, simple, timestamp, errors, printf } = format
 
 export const customLogger: Logger = createLogger({

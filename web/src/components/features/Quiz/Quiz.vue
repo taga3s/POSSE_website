@@ -44,7 +44,7 @@ const checkAnswer = (isCorrect: number) => {
 /**
  * state
  */
-const props = defineProps<{ quiz: TQuiz }>()
+const props = defineProps<{ quiz: TQuiz; num: number }>()
 const shuffledChoices = ref<TChoice[]>(shuffle(props.quiz.choices))
 const selectedChoice = ref<number | null>(null)
 // 苦渋のany
@@ -56,7 +56,7 @@ const answer_title = ref<any>(null)
 <template>
   <div class="p-quiz js-quiz">
     <div class="p-quiz__header">
-      <div class="p-quiz__header__quiz-label">Q{{ props.quiz.id }}</div>
+      <div class="p-quiz__header__quiz-label">Q{{ num }}</div>
       <span class="p-quiz__header__question">{{ props.quiz.quiz_text }}</span>
       <figure class="p-quiz__header__image">
         <img :src="`/img/quiz/${props.quiz.img}`" alt="" />

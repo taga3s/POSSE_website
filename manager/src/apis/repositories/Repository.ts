@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { TNewQuiz, TUpdateQuiz } from '../../types'
 
 const repository = axios.create({
   headers: {
@@ -15,6 +16,12 @@ export default (resource: string) => {
     },
     findById(id: number) {
       return repository.get(`${resource}/${id}`)
+    },
+    create(newQuiz: TNewQuiz) {
+      return repository.post(`${resource}`, JSON.stringify(newQuiz))
+    },
+    update(targetQuiz: TUpdateQuiz) {
+      return repository.post(`${resource}`, JSON.stringify(targetQuiz))
     },
     deleteById(id: number) {
       return repository.delete(`${resource}/${id}`)

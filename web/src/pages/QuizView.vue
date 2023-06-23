@@ -33,7 +33,7 @@ onMounted(() => {
   <article class="l-main">
     <Hero />
     <section class="p-quiz-container" id="js-quiz-area">
-      <Quiz v-for="q in quizSet" :quiz="q" :key="q.id" />
+      <Quiz v-for="(q, index) in quizSet" :quiz="q" :num="index + 1" :key="q.id" />
     </section>
     <Line />
     <LineAdd />

@@ -4,16 +4,18 @@ import { ChoicesModel } from '../models/ChoicesModel.js'
 import { QuizModel } from '../models/QuizModel.js'
 import { checkResponse } from '../utils/checkResponse.js'
 
-const quizModel = new QuizModel()
-const choicesModel = new ChoicesModel()
-
-// TODO: imgは後で保存処理を作る
-// appendix: 疑似DI
-
 export default class QuizService {
+  private quizModel
+  private choicesModel
+
+  constructor() {
+    this.quizModel = new QuizModel()
+    this.choicesModel = new ChoicesModel()
+  }
+
   public async getAllQuizzes() {
-    const quizzes = await quizModel.getAll()
-    const choices = await choicesModel.getAll()
+    const quizzes = await this.quizModel.getAll()
+    const choices = await this.choicesModel.getAll()
 
     if (checkResponse(quizzes) && checkResponse(choices)) {
       return { quizzes: quizzes, choices: choices }
@@ -23,8 +25,8 @@ export default class QuizService {
   }
 
   public async getQuizById(id: string) {
-    const quiz = await quizModel.getById(id)
-    const choices = await choicesModel.getById(id)
+    const quiz = await this.quizModel.getById(id)
+    const choices = await this.choicesModel.getById(id)
 
     if (checkResponse(quiz) && checkResponse(choices)) {
       return { quiz: quiz, choices: choices }
@@ -34,12 +36,13 @@ export default class QuizService {
   }
 
   public async createQuiz(quizDTO: IQuizDTO, choicesDTO: IChoicesDTO) {
-    const quiz_id = await quizModel.create(quizDTO)
+
+    const quiz_id = await this.quizModel.create(quizDTO)
     if (!quiz_id) {
       throw new Error('Failed posting a new quiz content')
     }
 
-    const isChoicesCreated = await choicesModel.create(quiz_id, choicesDTO)
+    const isChoicesCreated = await this.choicesModel.create(quiz_id, choicesDTO)
     if (isChoicesCreated) {
       return { status: 'success', message: 'Successfully posted data' }
     } else {
@@ -48,8 +51,8 @@ export default class QuizService {
   }
 
   public async updateQuiz(id: string, quizDTO: IQuizDTO, choicesDTO: IChoicesDTO) {
-    const isQuizUpdated = await quizModel.update(id, quizDTO)
-    const isChoicesUpdated = await choicesModel.update(id, choicesDTO)
+    const isQuizUpdated = await this.quizModel.update(id, quizDTO)
+    const isChoicesUpdated = await this.choicesModel.update(id, choicesDTO)
     if (isQuizUpdated && isChoicesUpdated) {
       return { status: 'success', message: 'Successfully updated data' }
     } else {
@@ -58,8 +61,8 @@ export default class QuizService {
   }
 
   public async deleteQuizById(id: string) {
-    const isChoicesDeleted = await choicesModel.deleteById(id)
-    const isQuizDeleted = await quizModel.deleteById(id)
+    const isChoicesDeleted = await this.choicesModel.deleteById(id)
+    const isQuizDeleted = await this.quizModel.deleteById(id)
     if (isChoicesDeleted && isQuizDeleted) {
       return { status: 'success', message: 'Successfully deleted data' }
     } else {
