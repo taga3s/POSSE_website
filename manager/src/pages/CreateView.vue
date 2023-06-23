@@ -1,91 +1,90 @@
+<script setup lang="ts">
+import { TNewQuiz } from '../types'
+import { RepositoryFactory } from '../apis/RepositoryFactory'
+import { ref } from 'vue'
+import router from '../router'
+import QuizTextForm from '../components/features/Quizzes/QuizTextForm.vue'
+import ChoicesForm from '../components/features/Quizzes/ChoicesForm.vue'
+import CorrectChoicesForm from '../components/features/Quizzes/CorrectChoicesForm.vue'
+import SupplementForm from '../components/features/Quizzes/SupplementForm.vue'
+import QuizImageForm from '../components/features/Quizzes/QuizImageForm.vue'
+
+const newQuiz = ref<TNewQuiz>({
+  img: '',
+  quiz_text: '',
+  choices: [
+    {
+      isCorrect: true,
+      name: '',
+    },
+    {
+      isCorrect: false,
+      name: '',
+    },
+    {
+      isCorrect: false,
+      name: '',
+    },
+  ],
+  supplement_text: '',
+  supplement_url: '',
+})
+
+const convertImgIntoBase64 = (val: File) => {
+  //TODO: 拡張子の判定
+  let fileReader = new FileReader()
+  fileReader.readAsDataURL(val)
+  fileReader.addEventListener('load', (e) => {
+    const target = e.target
+    if (target && typeof target.result === 'string') {
+      newQuiz.value.img = target.result
+    }
+  })
+}
+
+const quizRepository = RepositoryFactory.get('quiz')
+
+const submitNewQuiz = async (e: Event) => {
+  e.preventDefault()
+
+  const response = await quizRepository.create(newQuiz.value)
+  if (response.status == 201) {
+    alert('問題を作成しました。')
+    router.push('/')
+  } else {
+    alert('作成に失敗しました。')
+  }
+}
+</script>
+
 <template>
   <div class="px-14 py-9 w-full">
     <h2 class="text-4xl font-bold">問題作成</h2>
-    <form action="" method="post" enctype="multipart/form-data" class="mt-8">
+    <form class="mt-8">
       <dl>
-        <dt><label>問題文</label></dt>
-        <dd>
-          <input
-            class="w-full p-2 bg-slate-200 text-sm mt-2"
-            type="text"
-            name="question"
-            placeholder="問題文テキスト"
-            required
-          />
-        </dd>
-        <dt class="mt-6"><label>選択肢</label></dt>
-        <dd class="flex flex-col gap-2 mt-2">
-          <input
-            class="w-full p-2 bg-slate-200 text-sm"
-            type="text"
-            name="choice[]"
-            placeholder="選択肢１"
-            required
-          />
-          <input
-            class="w-full p-2 bg-slate-200 text-sm"
-            type="text"
-            name="choice[]"
-            placeholder="選択肢２"
-            required
-          />
-          <input
-            class="w-full p-2 bg-slate-200 text-sm"
-            type="text"
-            name="choice[]"
-            placeholder="選択肢３"
-            required
-          />
-        </dd>
-        <dt class="mt-6"><label>正解の選択肢</label></dt>
-        <dd class="flex flex-col gap-1 mt-2">
-          <label
-            ><input
-              type="radio"
-              name="correctChoice"
-              value="1"
-              checked
-            />選択肢１</label
-          >
-          <label
-            ><input
-              type="radio"
-              name="correctChoice"
-              value="2"
-            />選択肢２</label
-          >
-          <label
-            ><input
-              type="radio"
-              name="correctChoice"
-              value="3"
-            />選択肢３</label
-          >
-        </dd>
-        <dt class="mt-6"><label>問題の画像</label></dt>
-        <dd class="mt-2"><input type="file" name="image" required /></dd>
-        <dt class="mt-6"><label>補足</label></dt>
-        <dd class="mt-2">
-          <input
-            class="w-full p-2 bg-slate-200 text-sm"
-            type="text"
-            name="supplement"
-            placeholder="補足テキスト"
-          />
-        </dd>
-        <dd class="mt-2">
-          <input
-            class="w-full p-2 bg-slate-200 text-sm"
-            type="text"
-            name="supplement_url"
-            placeholder="補足URL"
-          />
-        </dd>
+        <!-- 問題文 -->
+        <QuizTextForm v-model:quiz_text="newQuiz.quiz_text" />
+
+        <!-- 選択肢 -->
+        <ChoicesForm :choices="newQuiz.choices" />
+
+        <!-- 正解の選択肢 -->
+        <CorrectChoicesForm :choices="newQuiz.choices" />
+
+        <!-- 問題の画像 -->
+        <QuizImageForm @on-change-img="(val: File) => convertImgIntoBase64(val)" />
+
+        <!-- 補足 -->
+        <SupplementForm
+          v-model:supplement_text="newQuiz.supplement_text"
+          v-model:supplement_url="newQuiz.supplement_url"
+        />
       </dl>
       <button
         class="w-full mt-8 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200"
         name="upload"
         type="submit"
+        @click="submitNewQuiz"
       >
         作成
       </button>
