@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { TNewQuiz } from '../types'
 import { RepositoryFactory } from '../apis/RepositoryFactory'
-import { ref } from 'vue'
 import router from '../router'
-import QuizTextForm from '../components/features/Quizzes/QuizTextForm.vue'
-import ChoicesForm from '../components/features/Quizzes/ChoicesForm.vue'
-import CorrectChoicesForm from '../components/features/Quizzes/CorrectChoicesForm.vue'
-import SupplementForm from '../components/features/Quizzes/SupplementForm.vue'
-import QuizImageForm from '../components/features/Quizzes/QuizImageForm.vue'
+import {
+  QuizTextForm,
+  ChoicesForm,
+  CorrectChoiceForm,
+  QuizImageForm,
+  SupplementForm,
+} from '../components/features/QuizForm'
 
 const newQuiz = ref<TNewQuiz>({
   img: '',
@@ -60,7 +62,7 @@ const submitNewQuiz = async (e: Event) => {
 <template>
   <div class="px-14 py-9 w-full">
     <h2 class="text-4xl font-bold">問題作成</h2>
-    <form class="mt-8">
+    <form class="mt-8" @submit="submitNewQuiz">
       <dl>
         <!-- 問題文 -->
         <QuizTextForm v-model:quiz_text="newQuiz.quiz_text" />
@@ -69,7 +71,7 @@ const submitNewQuiz = async (e: Event) => {
         <ChoicesForm :choices="newQuiz.choices" />
 
         <!-- 正解の選択肢 -->
-        <CorrectChoicesForm :choices="newQuiz.choices" />
+        <CorrectChoiceForm :choices="newQuiz.choices" />
 
         <!-- 問題の画像 -->
         <QuizImageForm @on-change-img="(val: File) => convertImgIntoBase64(val)" />
@@ -82,9 +84,6 @@ const submitNewQuiz = async (e: Event) => {
       </dl>
       <button
         class="w-full mt-8 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200"
-        name="upload"
-        type="submit"
-        @click="submitNewQuiz"
       >
         作成
       </button>

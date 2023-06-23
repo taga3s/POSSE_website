@@ -11,5 +11,5 @@ const handleImg = (e: Event) => {
 
 <template>
   <dt class="mt-6"><label>問題の画像</label></dt>
-  <dd class="mt-2"><input type="file" name="image" @change="handleImg" /></dd>
+  <dd class="mt-2"><input type="file" name="image" @change="handleImg" required /></dd>
 </template>

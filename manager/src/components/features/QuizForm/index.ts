@@ -1,0 +1,5 @@
+export { default as ChoicesForm } from './ChoicesForm.vue'
+export { default as CorrectChoiceForm } from './CorrectChoiceForm.vue'
+export { default as QuizImageForm } from './QuizImageForm.vue'
+export { default as QuizTextForm } from './QuizTextForm.vue'
+export { default as SupplementForm } from './SupplementForm.vue'
