@@ -33,7 +33,6 @@ const newQuiz = ref<TNewQuiz>({
 })
 
 const convertImgIntoBase64 = (val: File) => {
-  //TODO: 拡張子の判定
   let fileReader = new FileReader()
   fileReader.readAsDataURL(val)
   fileReader.addEventListener('load', (e) => {
@@ -74,7 +73,10 @@ const submitNewQuiz = async (e: Event) => {
         <CorrectChoiceForm :choices="newQuiz.choices" />
 
         <!-- 問題の画像 -->
-        <QuizImageForm @on-change-img="(val: File) => convertImgIntoBase64(val)" />
+        <QuizImageForm
+          :savedImg="newQuiz.img"
+          @on-change-img="(val: File) => convertImgIntoBase64(val)"
+        />
 
         <!-- 補足 -->
         <SupplementForm

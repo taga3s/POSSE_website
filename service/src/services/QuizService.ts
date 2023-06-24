@@ -36,7 +36,6 @@ export default class QuizService {
   }
 
   public async createQuiz(quizDTO: IQuizDTO, choicesDTO: IChoicesDTO) {
-
     const quiz_id = await this.quizModel.create(quizDTO)
     if (!quiz_id) {
       throw new Error('Failed posting a new quiz content')

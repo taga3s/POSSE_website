@@ -20,8 +20,9 @@ export default (resource: string) => {
     create(newQuiz: TNewQuiz) {
       return repository.post(`${resource}`, JSON.stringify(newQuiz))
     },
-    update(targetQuiz: TUpdateQuiz) {
-      return repository.post(`${resource}`, JSON.stringify(targetQuiz))
+    update(updateQuiz: TUpdateQuiz) {
+      console.log(updateQuiz)
+      return repository.put(`${resource}/${updateQuiz.id}`, JSON.stringify(updateQuiz))
     },
     deleteById(id: number) {
       return repository.delete(`${resource}/${id}`)

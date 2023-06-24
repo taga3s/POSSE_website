@@ -1,5 +1,5 @@
 import { check, validationResult } from 'express-validator'
-export const quizValValidator = [
+export const createValidator = [
   check('quiz_text').isString().isLength({ min: 1 }).withMessage('必須項目です。'),
   check('img').isString().isLength({ min: 1 }).withMessage('必須項目です。'),
   check('supplement_text').isString(),
