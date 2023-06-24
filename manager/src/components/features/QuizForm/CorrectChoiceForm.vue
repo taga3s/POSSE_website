@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TChoice, TNewChoice } from '../../../types'
-import { convertValueIntoBoolean } from '../../utils/convertValueIntoBoolean'
+import { convertValueIntoBoolean } from '../../../utils/convertValueIntoBoolean'
 
 const props = defineProps<{ choices: TChoice[] | TNewChoice[] }>()
 </script>

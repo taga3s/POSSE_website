@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TableItem from '../components/features/Quizzes/TableItem.vue'
+import { TableItem } from '../components/features/Quizzes'
 import { RepositoryFactory } from '../apis/RepositoryFactory'
 import { onMounted, ref } from 'vue'
 
@@ -20,15 +20,15 @@ const fetchQuizzes = async () => {
   })
 }
 
-const deleteQuiz = async (id: number) => {
+const deleteQuizById = async (id: number) => {
   if (window.confirm(`Do you really delete id:${id} quiz?`)) {
     const res = await quizRepository.deleteById(id)
 
     if (res.status === 204) {
-      alert(`Successfully deleted id:${id} quiz!`)
+      alert(`status:${res.status} Successfully deleted id:${id} quiz!`)
       window.location.reload()
     } else {
-      alert('Something went wrong...')
+      alert(`status:${res.status} Something went wrong...`)
     }
   } else {
     return
@@ -58,7 +58,7 @@ onMounted(() => {
             v-for="q in quizSet"
             :key="q.id"
             :quiz="q"
-            @on-click-delete="(id) => deleteQuiz(id)"
+            @on-click-delete="(id) => deleteQuizById(id)"
           />
         </tbody>
       </table>
