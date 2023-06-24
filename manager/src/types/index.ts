@@ -7,15 +7,9 @@ export type TQuiz = {
   supplement_url: string
 }
 
-export type TNewQuiz = {
-  img: string
-  quiz_text: string
-  choices: TNewChoice[]
-  supplement_text: string
-  supplement_url: string
-}
+export type TNewQuiz = Omit<TQuiz, 'id' | 'choices'> & { choices: TNewChoice[] }
 
-export type TUpdateQuiz = TNewChoice
+export type TUpdateQuiz = TQuiz
 
 export type TChoice = {
   id: number
@@ -24,7 +18,4 @@ export type TChoice = {
   quiz_id: number
 }
 
-export type TNewChoice = {
-  isCorrect: number | boolean
-  name: string
-}
+export type TNewChoice = Omit<TChoice, 'id' | 'quiz_id'>
