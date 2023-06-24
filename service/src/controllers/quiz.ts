@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from 'express'
 import QuizService from '../services/QuizService.js'
-import { quizValValidator } from './middleware/validations/quiz.js'
+import { createValidator, updateValidator } from './middleware/validations/quiz.js'
 import { customLogger } from '../utils/logger.js'
 
 const route = Router()
@@ -31,7 +31,7 @@ route.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   }
 })
 
-route.post('/', quizValValidator, async (req: Request, res: Response, next: NextFunction) => {
+route.post('/', createValidator, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { quiz_text, img, supplement_text, supplement_url, choices } = req.body
     const quizDTO = {
@@ -53,7 +53,7 @@ route.post('/', quizValValidator, async (req: Request, res: Response, next: Next
   }
 })
 
-route.put('/:id', quizValValidator, async (req: Request, res: Response, next: NextFunction) => {
+route.put('/:id', updateValidator, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const id = req.params.id
     const { quiz_text, img, supplement_text, supplement_url, choices } = req.body

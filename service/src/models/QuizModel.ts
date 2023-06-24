@@ -56,11 +56,20 @@ export class QuizModel {
     try {
       await connection.beginTransaction()
 
+      if (img) {
+        const fileName = saveImgToWebLocal(img)
+
+        const sql = 'UPDATE quizzes SET img = ? WHERE id = ?'
+        const [ResultSetHeader] = await connection.execute(sql, [fileName, id])
+
+        const rsh = ResultSetHeader as ResultSetHeader
+        if (rsh.affectedRows == 0) throw new Error(`There is no id:${id} quiz content data`)
+      }
+
       const sql =
-        'UPDATE quizzes SET quiz_text = ?, img = ?, supplement_text = ?, supplement_url = ? WHERE id = ?'
+        'UPDATE quizzes SET quiz_text = ?, supplement_text = ?, supplement_url = ? WHERE id = ?'
       const [ResultSetHeader] = await connection.execute(sql, [
         quiz_text,
-        img,
         supplement_text,
         supplement_url,
         id,
