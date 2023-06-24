@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../pages/HomeView.vue'
-import QuizView from '../pages/QuizView.vue'
-import NotFoundView from '../pages/NotFoundView.vue'
+import { HomeView, QuizView, NotFoundView } from '../pages'
 
 const routes = [
   {
@@ -29,7 +27,7 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
   const title = to.meta.title as string
   if (title) {
     document.title = title
