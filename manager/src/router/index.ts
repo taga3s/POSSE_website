@@ -1,9 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import QuizzesView from '../pages/QuizzesView.vue'
-import CreateView from '../pages/CreateView.vue'
-import EditView from '../pages/EditView.vue'
-import InviteView from '../pages/InviteView.vue'
-import NotFoundView from '../pages/NotFoundView.vue'
+import {
+  QuizzesView,
+  CreateView,
+  EditView,
+  InviteView,
+  NotFoundView,
+  LoginView,
+  SignupView
+} from '../pages'
+
 
 const routes = [
   {
@@ -25,6 +30,16 @@ const routes = [
     path: '/invite',
     name: 'invite',
     component: InviteView,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView,
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignupView,
   },
   {
     path: '/:pathMatch(.*)*',
