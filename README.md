@@ -50,13 +50,13 @@
 #### バックエンド
 
 - 三層アーキテクチャ(models, controllers, services)による構築
-- Rest での API 開発  
+- RestAPI での 開発
   @ref https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
   @ref https://github.com/santiq/bulletproof-nodejs/tree/master
 
 ## 反省点・改善点
 
-- `npm workspaces`等を活用し、環境の快適にする
+- `npm workspaces`等を活用して、ちゃんとしたモノレポ環境を作る
 - eslint や prettier の設定の見直し
 - zod 等でバリデーションを行い、UX の向上を図る
 - API 設計やエラーハンドリングの理解不足
