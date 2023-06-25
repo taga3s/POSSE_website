@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script setup lang="ts">
 import { ref } from 'vue'
 import { TChoice, TQuiz } from '../../../types'
@@ -47,7 +48,7 @@ const checkAnswer = (isCorrect: number) => {
 const props = defineProps<{ quiz: TQuiz; num: number }>()
 const shuffledChoices = ref<TChoice[]>(shuffle(props.quiz.choices))
 const selectedChoice = ref<number | null>(null)
-// 苦渋のany
+
 const choice_buttons = ref<any>(null)
 const answer = ref<any>(null)
 const answer_title = ref<any>(null)

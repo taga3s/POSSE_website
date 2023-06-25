@@ -6,7 +6,7 @@
         <span>About Posse</span>
       </div>
       <div class="p-about__content">
-        <img src="img/img-about.jpg" alt="" />
+        <img src="/img/img-about.jpg" alt="" />
         <p>
           学生プログラミングコミュニティ「POSSE(ポッセ)」は、人格とプログラミング、二つの面での成長をスローガンに活動しており、大学生だけが集まって学びを深めるコミュニティです。<br />
           プログラミングだけではありません。オフラインでのイベントや、旅行など様々な企画を行っています！<br />

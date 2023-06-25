@@ -5,7 +5,7 @@ const repository = axios.create({
     'Content-Type': 'Application/json',
     Accept: 'Application/json',
   },
-  baseURL: 'http://localhost:8080',
+  baseURL: `${import.meta.env.VITE_API_ENDPOINT}`,
 })
 
 export default (resource: string) => {

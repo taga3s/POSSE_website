@@ -2,10 +2,8 @@
 import { onMounted, ref } from 'vue'
 import { TQuiz, TChoice } from '../types'
 
-import Hero from '../components/features/Quiz/Hero.vue'
-import Quiz from '../components/features/Quiz/Quiz.vue'
-import Line from '../components/features/common/Line.vue'
-import LineAdd from '../components/features/common/LineAdd.vue'
+import { Hero, Quiz } from '../components/features/Quiz'
+import { Line, LineAdd } from '../components/features/common'
 
 import { RepositoryFactory } from '../apis/RepositoryFactory'
 

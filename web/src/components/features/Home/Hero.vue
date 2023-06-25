@@ -7,7 +7,7 @@
           <span>自分史上最高を仲間と。</span>
         </div>
       </div>
-      <img src="img/img-hero.jpg" alt="" />
+      <img src="/img/img-hero.jpg" alt="" />
       <div class="p-hero__sd">
         <span class="p-hero__sd__circle"></span>
         <span class="p-hero__sd__text">Scroll Down</span>

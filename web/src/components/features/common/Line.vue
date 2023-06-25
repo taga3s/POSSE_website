@@ -4,7 +4,7 @@
       <div class="p-line__content">
         <div class="p-line__inner">
           <div class="p-line__header">
-            <div class="p-line__header__image"><img src="img/icon/icon-line.svg" alt="" /></div>
+            <div class="p-line__header__image"><img src="/img/icon/icon-line.svg" alt="" /></div>
             <span class="p-line__header__title">POSSE 公式LINE</span>
           </div>
           <span>
