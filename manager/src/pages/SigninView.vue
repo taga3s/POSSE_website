@@ -1,6 +1,6 @@
 <template>
   <form class="px-40 py-9 w-full">
-    <h2 class="text-4xl font-bold">ログイン</h2>
+    <h2 class="text-4xl font-bold">サインイン</h2>
     <div class="mt-8">
       <dl>
         <dt><label>Email</label></dt>

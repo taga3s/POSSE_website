@@ -41,6 +41,7 @@ export class QuizModel {
         supplement_url,
       ])
       const rsh = ResultSetHeader as ResultSetHeader
+      if (rsh.affectedRows == 0) throw new Error(`Failed creating a new quiz`)
 
       await connection.commit()
 
