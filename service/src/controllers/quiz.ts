@@ -5,9 +5,9 @@ import { customLogger } from '../utils/logger.js'
 
 const route = Router()
 
-const quizService = new QuizService()
-
 route.get('/', async (req: Request, res: Response, next: NextFunction) => {
+  const quizService = new QuizService()
+
   try {
     const { quizzes, choices } = await quizService.getAllQuizzes()
     customLogger.debug(`🔧 debug: ${JSON.stringify({ quizzes, choices })}`)
@@ -19,6 +19,8 @@ route.get('/', async (req: Request, res: Response, next: NextFunction) => {
 })
 
 route.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
+  const quizService = new QuizService()
+
   try {
     const id = req.params.id
     const { quiz, choices } = await quizService.getQuizById(id)
@@ -32,6 +34,8 @@ route.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
 })
 
 route.post('/', createValidator, async (req: Request, res: Response, next: NextFunction) => {
+  const quizService = new QuizService()
+
   try {
     const { quiz_text, img, supplement_text, supplement_url, choices } = req.body
     const quizDTO = {
@@ -54,6 +58,8 @@ route.post('/', createValidator, async (req: Request, res: Response, next: NextF
 })
 
 route.put('/:id', updateValidator, async (req: Request, res: Response, next: NextFunction) => {
+  const quizService = new QuizService()
+
   try {
     const id = req.params.id
     const { quiz_text, img, supplement_text, supplement_url, choices } = req.body
@@ -76,6 +82,8 @@ route.put('/:id', updateValidator, async (req: Request, res: Response, next: Nex
 })
 
 route.delete('/:id', async (req: Request, res: Response, next: NextFunction) => {
+  const quizService = new QuizService()
+
   try {
     const id = req.params.id
     const { status, message } = await quizService.deleteQuizById(id)
