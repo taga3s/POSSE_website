@@ -5,7 +5,7 @@ import {
   EditView,
   InviteView,
   NotFoundView,
-  LoginView,
+  SigninView,
   SignupView
 } from '../pages'
 
@@ -32,9 +32,9 @@ const routes = [
     component: InviteView,
   },
   {
-    path: '/login',
-    name: 'login',
-    component: LoginView,
+    path: '/signin',
+    name: 'signin',
+    component: SigninView,
   },
   {
     path: '/signup',
