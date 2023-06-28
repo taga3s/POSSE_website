@@ -14,8 +14,6 @@ import {
 const route = useRoute()
 const router = useRouter()
 
-const quizRepository = RepositoryFactory.get('quiz')
-
 const updateQuiz = ref<TQuiz & { savedImg: string }>({
   id: 0,
   img: '',
@@ -26,6 +24,10 @@ const updateQuiz = ref<TQuiz & { savedImg: string }>({
   supplement_url: '',
 })
 
+/**
+ * functions
+ */
+const quizRepository = RepositoryFactory.get('quiz')
 const fetchQuiz = async () => {
   const id = route.query.id
   if (typeof id !== 'string') {
@@ -36,10 +38,6 @@ const fetchQuiz = async () => {
   const { quiz, choices } = res.data
   updateQuiz.value = { ...quiz[0], img: '', savedImg: quiz[0].img, choices }
 }
-
-onMounted(async () => {
-  fetchQuiz()
-})
 
 const convertImgIntoBase64 = (val: File) => {
   let fileReader = new FileReader()
@@ -65,14 +63,18 @@ const submitEditQuiz = async (e: Event) => {
     supplement_url,
   })
   if (response.status == 204) {
-    alert(`status ${response.status}: 問題を編集しました。`)
+    alert(`status ${response.status}: 正常に問題を編集しました。`)
     router.push('/')
   } else {
-    alert(`status ${response.status}: 編集に失敗しました。`)
+    alert(`status ${response.status}: 問題の編集に失敗しました。`)
   }
 
   router.push('/')
 }
+
+onMounted(async () => {
+  fetchQuiz()
+})
 </script>
 
 <template>

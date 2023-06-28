@@ -2,11 +2,10 @@
   <div class="px-14 py-9">
     <div class="flex flex-col gap-9">
       <h2 class="text-4xl font-bold">ユーザー招待</h2>
-      <form action="" method="post" class="flex items-center gap-5">
+      <form class="flex items-center gap-5">
         <input
           type="text"
           class="w-96 p-2 bg-slate-200 text-sm"
-          id="js-email"
           name="email"
           placeholder="メールアドレスを入力"
           required

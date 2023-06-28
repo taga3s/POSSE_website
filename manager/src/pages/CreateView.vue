@@ -32,6 +32,9 @@ const newQuiz = ref<TNewQuiz>({
   supplement_url: '',
 })
 
+/**
+ * functions
+ */
 const convertImgIntoBase64 = (val: File) => {
   let fileReader = new FileReader()
   fileReader.readAsDataURL(val)
@@ -44,16 +47,15 @@ const convertImgIntoBase64 = (val: File) => {
 }
 
 const quizRepository = RepositoryFactory.get('quiz')
-
 const submitNewQuiz = async (e: Event) => {
   e.preventDefault()
 
   const response = await quizRepository.create(newQuiz.value)
   if (response.status == 201) {
-    alert('問題を作成しました。')
+    alert(`status ${response.status}: 正常に問題を作成しました。`)
     router.push('/')
   } else {
-    alert('作成に失敗しました。')
+    alert(`status ${response.status}: 問題の作成に失敗しました。`)
   }
 }
 </script>
