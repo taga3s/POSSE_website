@@ -19,33 +19,37 @@ watch(route, () => {
 <template>
   <header class="p-header">
     <div class="p-header__container">
-      <router-link to="/" class="p-header__logo"><img src="/img/logo.svg" alt="" /></router-link>
+      <router-link to="/" class="p-header__logo"
+        ><img src="/img/logo.svg" alt="POSSEロゴ"
+      /></router-link>
       <nav>
         <ul class="p-header__items-list" ref="ref_nav">
           <li class="p-header__items-list__text01"><router-link to="/">POSSEとは</router-link></li>
           <li class="p-header__items-list__text02"><router-link to="/quiz">クイズ</router-link></li>
           <li class="p-header__items-list__sns">
-            <a href="#"><img src="/img/icon/icon-twitter.svg" alt="" /></a>
+            <a href="#"><img src="/img/icon/icon-twitter.svg" alt="Twitterアイコン" /></a>
           </li>
           <li class="p-header__items-list__sns">
-            <a href="#"><img src="/img/icon/icon-instagram.svg" alt="" /></a>
+            <a href="#"><img src="/img/icon/icon-instagram.svg" alt="Instagramアイコン" /></a>
           </li>
           <ul class="p-header__items-list-mobile">
             <li class="p-header__items-list-mobile__line-add">
               <div class="p-header__items-list-mobile__line-add__container">
                 <div class="p-header__items-list-mobile__line-add__image01">
-                  <img src="/img/icon/icon-line.svg" alt="" />
+                  <img src="/img/icon/icon-line.svg" alt="Lineアイコン" />
                 </div>
                 <span>POSSE公式LINE追加</span>
                 <div class="p-header__items-list-mobile__line-add__image02">
-                  <img src="/img/icon/icon-link-light.svg" alt="" />
+                  <img src="/img/icon/icon-link-light.svg" alt="Linkアイコン" />
                 </div>
               </div>
             </li>
-            <li>POSSE公式サイト<img src="/img/icon/icon-link-gray-dark.svg" alt="" /></li>
             <li>
-              <a href="#"><img src="/img/icon/icon-twitter.svg" alt="" /></a>
-              <a href="#"><img src="/img/icon/icon-instagram.svg" alt="" /></a>
+              POSSE公式サイト<img src="/img/icon/icon-link-gray-dark.svg" alt="Linkアイコン" />
+            </li>
+            <li>
+              <a href="#"><img src="/img/icon/icon-twitter.svg" alt="Twitterアイコン" /></a>
+              <a href="#"><img src="/img/icon/icon-instagram.svg" alt="Instagramアイコン" /></a>
             </li>
           </ul>
         </ul>
