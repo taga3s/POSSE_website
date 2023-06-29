@@ -10,6 +10,7 @@ import {
   QuizImageForm,
   SupplementForm,
 } from '../components/features/QuizForm'
+import { Button } from '../components/features/common/partials'
 
 const route = useRoute()
 const router = useRouter()
@@ -103,11 +104,7 @@ onMounted(async () => {
           v-model:supplement_url="updateQuiz.supplement_url"
         />
       </dl>
-      <button
-        class="w-full mt-8 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200"
-      >
-        更新
-      </button>
+      <Button :width="`w-full`" :text="`更新`" :margin="true" />
     </form>
   </div>
 </template>

@@ -10,6 +10,7 @@ import {
   QuizImageForm,
   SupplementForm,
 } from '../components/features/QuizForm'
+import { Button } from '../components/features/common/partials'
 
 const newQuiz = ref<TNewQuiz>({
   img: '',
@@ -86,11 +87,7 @@ const submitNewQuiz = async (e: Event) => {
           v-model:supplement_url="newQuiz.supplement_url"
         />
       </dl>
-      <button
-        class="w-full mt-8 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200"
-      >
-        作成
-      </button>
+      <Button :width="`w-full`" :text="`作成`" :margin="true" />
     </form>
   </div>
 </template>
