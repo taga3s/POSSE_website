@@ -60,7 +60,7 @@ const answer_title = ref<any>(null)
       <div class="p-quiz__header__quiz-label">Q{{ num }}</div>
       <span class="p-quiz__header__question">{{ props.quiz.quiz_text }}</span>
       <figure class="p-quiz__header__image">
-        <img :src="`/img/quiz/${props.quiz.img}`" alt="" />
+        <img :src="`/img/quiz/${props.quiz.img}`" alt="クイズイメージ" />
       </figure>
     </div>
     <div class="p-quiz__answer-label">A</div>

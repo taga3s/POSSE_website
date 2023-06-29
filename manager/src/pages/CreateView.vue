@@ -10,6 +10,7 @@ import {
   QuizImageForm,
   SupplementForm,
 } from '../components/features/QuizForm'
+import { Button } from '../components/features/common/partials'
 
 const newQuiz = ref<TNewQuiz>({
   img: '',
@@ -32,6 +33,9 @@ const newQuiz = ref<TNewQuiz>({
   supplement_url: '',
 })
 
+/**
+ * functions
+ */
 const convertImgIntoBase64 = (val: File) => {
   let fileReader = new FileReader()
   fileReader.readAsDataURL(val)
@@ -44,16 +48,15 @@ const convertImgIntoBase64 = (val: File) => {
 }
 
 const quizRepository = RepositoryFactory.get('quiz')
-
 const submitNewQuiz = async (e: Event) => {
   e.preventDefault()
 
   const response = await quizRepository.create(newQuiz.value)
   if (response.status == 201) {
-    alert('問題を作成しました。')
+    alert(`status ${response.status}: 正常に問題を作成しました。`)
     router.push('/')
   } else {
-    alert('作成に失敗しました。')
+    alert(`status ${response.status}: 問題の作成に失敗しました。`)
   }
 }
 </script>
@@ -84,11 +87,7 @@ const submitNewQuiz = async (e: Event) => {
           v-model:supplement_url="newQuiz.supplement_url"
         />
       </dl>
-      <button
-        class="w-full mt-8 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200"
-      >
-        作成
-      </button>
+      <Button :width="`w-full`" :text="`作成`" :margin="true" />
     </form>
   </div>
 </template>

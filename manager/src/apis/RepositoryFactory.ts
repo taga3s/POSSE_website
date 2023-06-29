@@ -1,4 +1,5 @@
 import QuizRepository from './repositories/QuizRepository'
+import UserRepository from './repositories/UserRepository'
 
 interface repositoryObject {
   [name: string]: any
@@ -6,6 +7,7 @@ interface repositoryObject {
 
 const repositories: repositoryObject = {
   quiz: QuizRepository,
+  user: UserRepository,
 }
 
 export const RepositoryFactory = {

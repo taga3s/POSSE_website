@@ -6,9 +6,8 @@ import {
   InviteView,
   NotFoundView,
   SigninView,
-  SignupView
+  SignupView,
 } from '../pages'
-
 
 const routes = [
   {
