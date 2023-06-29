@@ -4,7 +4,7 @@
 
 ![POSSE _ クイズ](https://github.com/Seiya-Tagami/POSSE_website/assets/107479598/bccb9cd6-ee3b-4d86-b251-fb2d9271cba2)
 
-管理画面
+クイズ管理アプリ
 
 ![POSSE_website Manager](https://github.com/Seiya-Tagami/POSSE_website/assets/107479598/1f12c016-0fcd-4b52-9b60-92ecc4a0536a)
 
@@ -27,9 +27,9 @@
 #### フロントエンド
 
 - Vue3 (Composition API)
+- TypeScript
 - sass
 - Tailwind CSS
-- TypeScript
 - vite
 
 #### バックエンド
@@ -41,26 +41,27 @@
 
 ## 構成 / デザインパターンなど
 
-- 成り行きでモノレポ的な感じになりました
-  - web（Web サイトのフロントエンド）
-  - manager（クイズの管理アプリ）
-  - service（クイズや認証の API を配信するバックエンド）
+#### 成り行きでモノレポ的な感じに...
 
-#### フロントエンド
+- web（Web サイトのフロントエンド）
+- manager（クイズの管理アプリ）
+- service（クイズや認証の API を配信するバックエンド）
 
-- SPA での構築
-- Repository Pattern を試してみた  
+#### フロントエンド（web / manager）
+
+- SPA で実装
+- Repository Pattern で API ロジックを記述  
   @ref https://zenn.dev/chida/articles/5756a54d94230a  
   @ref https://qiita.com/07JP27/items/0923cbe3b6435c19d761
 
-#### バックエンド
+#### バックエンド（service）
 
 - 三層アーキテクチャ(models, controllers, services)による構築
 - RestAPI での 開発
   @ref https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
   @ref https://github.com/santiq/bulletproof-nodejs/tree/master
 
-## 改善点
+## 改善していくべき点
 
 - `npm workspaces`等を活用して、ちゃんとしたモノレポ環境を作る
 - eslint や prettier の設定の見直し
