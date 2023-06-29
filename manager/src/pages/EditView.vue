@@ -9,11 +9,13 @@ import {
   CorrectChoiceForm,
   QuizImageForm,
   SupplementForm,
-} from '../components/features/QuizForm'
+} from '../components/features/QuizForms'
 import { Button } from '../components/features/common/partials'
 
 const route = useRoute()
 const router = useRouter()
+
+//TODO: ページガード
 
 const updateQuiz = ref<TQuiz & { savedImg: string }>({
   id: 0,

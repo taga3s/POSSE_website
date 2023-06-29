@@ -12,9 +12,9 @@ watch(route, (newRoute) => {
 </script>
 
 <template>
-  <Header />
+  <Header :current-path="currentPath ? currentPath : ''" />
   <div class="flex">
-    <Sidebar v-if="currentPath !== '/signup'" />
+    <Sidebar v-if="currentPath !== '/signin' && currentPath !== '/signup'" />
     <router-view></router-view>
   </div>
 </template>

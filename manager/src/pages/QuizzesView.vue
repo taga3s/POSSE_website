@@ -47,7 +47,7 @@ onMounted(() => {
   <div class="px-14 py-9">
     <div class="flex flex-col gap-9 w-auto">
       <label class="text-4xl font-bold">問題一覧</label>
-      <Table>
+      <Table v-if="quizSet.length">
         <TableItem
           v-for="q in quizSet"
           :key="q.id"
@@ -55,6 +55,7 @@ onMounted(() => {
           @on-click-delete="(id) => deleteQuizById(id)"
         />
       </Table>
+      <span v-else>データが取得できませんでした。クイズを登録し忘れていませんか？</span>
     </div>
   </div>
 </template>
