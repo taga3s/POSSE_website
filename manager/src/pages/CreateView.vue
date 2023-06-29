@@ -9,7 +9,7 @@ import {
   CorrectChoiceForm,
   QuizImageForm,
   SupplementForm,
-} from '../components/features/QuizForm'
+} from '../components/features/QuizForms'
 import { Button } from '../components/features/common/partials'
 
 const newQuiz = ref<TNewQuiz>({

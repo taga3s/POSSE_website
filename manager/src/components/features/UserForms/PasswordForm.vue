@@ -25,7 +25,7 @@ const computedPassword = computed({
       :id="`password-${label}`"
       type="password"
       v-model="computedPassword"
-      :placeholder="props.label"
+      placeholder="パスワードを入力"
       required
     />
   </dd>
