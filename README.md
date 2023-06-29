@@ -44,7 +44,7 @@
 #### 成り行きでモノレポ的な感じに...
 
 - web（Web サイトのフロントエンド）
-- manager（クイズの管理アプリ）
+- manager（クイズ管理アプリ）
 - service（クイズや認証の API を配信するバックエンド）
 
 #### フロントエンド（web / manager）
@@ -57,7 +57,7 @@
 #### バックエンド（service）
 
 - 三層アーキテクチャ(models, controllers, services)による構築
-- RestAPI での 開発
+- REST での 開発  
   @ref https://qiita.com/baby-degu/items/f1489dd94becd46ab523  
   @ref https://github.com/santiq/bulletproof-nodejs/tree/master
 
@@ -70,7 +70,7 @@
 - キャッシュなどを取り入れて、アプリケーションの高速化を図る
 - とはいえ、やはりバックエンドの知識が全体的に不足していると実感した
 
-## プロジェクトの始め方
+## Getting started
 
 ### web / manager
 
